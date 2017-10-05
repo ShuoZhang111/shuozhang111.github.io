@@ -316,7 +316,40 @@
       
         
           
-            <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/6.jpg" alt="6"></p>
+            <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/6.jpg" alt="6"><br>在之前我们介绍Flask的时候就说过Flask是一个非常灵活的框架，而且Flask也是支持好多的拓展。</p>
+<h3 id="Flask拓展"><a href="#Flask拓展" class="headerlink" title="Flask拓展"></a>Flask拓展</h3><p>Flask被设计为可拓展形式，故而没有提供一些重要的功能，例如数据库和用户认证，所以开发者可以自由选择最合适的包，或者按照需求自行开发。<br>当然了Flask有好多的拓展，就像<strong>海底之冰山</strong>我一直都是对未知的事物抱有一颗敬畏之心，所以我肯定是不会，而且也不必了解全部的拓展包。我们就只谈一下最常用的一些包。</p>
+<h4 id="Flask-Script支持命令行选项"><a href="#Flask-Script支持命令行选项" class="headerlink" title="Flask-Script支持命令行选项"></a>Flask-Script支持命令行选项</h4><p>当我们使用Flask开发Web服务器的时候会支持很多启动设置选项，但只能在脚本中作为参数传递给app.run()函数，这样的操作是很不方便的，传递设置选项的理想方式就是使用命令行参数。<br>Flask-Script是Flask拓展，为Flask程序添加了一个命令行解析器。Flask-Script自带了一组常用的选项，而且还支持自定义命令。我们使用pip进行安装。</p>
+<p><code>(env)$ pip install flask-script</code></p>
+<pre><code>from flask.ext.script import Manager
+from flask import Flask
+app = Flask(__name__)
+manager = Manager(app)
+@app.route
+def index():
+    return &apos;&lt;h1&gt;Hello World！&lt;/h1&gt;&apos;
+
+if __name__ == &apos;__main__&apos;:
+    manager.run()
+</code></pre><p>上面我们做了一个简单的示例。专门为Flask开发的拓展都暴露在flask.ext命名空间下。Flask-Script输出了一个名为Manager的类，可以从flask.ext.script中引入。<br>当我们启动这个程序的时候就可以解析命令了。</p>
+<pre><code>$python hello.py
+usage: hello.py [-h] {shell,runserver} ...
+
+positional arguments:
+  {shell,runserver}
+    shell             在Flask应用上下文中运行Python Shell
+    runserver         运行Flask开发服务器：app.run()
+
+optional arguments:
+  -h --help            显示帮助信息并退出
+</code></pre><p>shell命令用于在程序上下文中启动Python Shell会话，可以使用Shell维护，调试异常。<br>runserver命令用来启动Web服务器，运行<code>python hello.py runserver</code>将以调试模式启动Web服务器。</p>
+<pre><code>(env)$python hello.py runserver --help 
+usage: hello.py runserver [-h] [-t HOST] [-p PORT] [--threaded]
+                            [--processes PROCESSES] [--passthrough-errors] [-d] [-r]
+</code></pre><p>我们是这样运行上面的程序的</p>
+<pre><code>(env)$ python hello.py runserver --host 0.0.0.0
+ * Running on http://0.0.0.0:5000/
+ * Restarting with reloader
+</code></pre><p>现在我们我们就可以访问了。关于–host后的参数，这里并不进行详细讲解。</p>
 
           
         
@@ -792,8 +825,12 @@ def index():
 </ul>
 </li>
 <li><p>所有Flask程序都必须构建一个<strong>程序实例</strong>。Web程序使用一种Web服务器网关接口（WSGI）的协议，把接收自服务器的所有请求都交给这个对象处理。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">from flask import Flask</div><div class="line">app = Flask(__name__) </div><div class="line">      @app.route(&apos;/&apos;)</div><div class="line">def index():</div><div class="line">	return &apos;&lt;h1&gt;hello world!&lt;/h1&gt;&apos;</div></pre></td></tr></table></figure>
-</li>
+<pre><code>from flask import Flask
+app = Flask(__name__) 
+@app.route(&apos;/&apos;)
+def index():
+    return &apos;&lt;h1&gt;hello world!&lt;/h1&gt;&apos; 
+</code></pre></li>
 <li><p><code>(env) $ python name.py</code></p>
 </li>
 <li>打开提示<strong>网络地址和端口</strong>默认的是<code>http://127.0.0.1:5000</code></li>

@@ -103,7 +103,7 @@
 <meta property="og:description" content="其实本文与其说是Flask 学习笔记不如说是Flask Web开发基于Python的Web应用开发实战的读书笔记 Flask简介在大多数标准中Flask都算是一个小型框架，但是小并不意味者它比其他框架功能少。 Flask有两个主要依赖 Werkzeug和jinja2这两个依赖都是由Flask核心开发者开发而成：  路由，调试，和Web服务器网络接口(Web Server Gateway Inte">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow2flmior.bkt.clouddn.com/image/blog/2.jpg">
-<meta property="og:updated_time" content="2017-09-21T05:24:17.772Z">
+<meta property="og:updated_time" content="2017-10-05T06:40:30.181Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flask 学习笔记（一）">
 <meta name="twitter:description" content="其实本文与其说是Flask 学习笔记不如说是Flask Web开发基于Python的Web应用开发实战的读书笔记 Flask简介在大多数标准中Flask都算是一个小型框架，但是小并不意味者它比其他框架功能少。 Flask有两个主要依赖 Werkzeug和jinja2这两个依赖都是由Flask核心开发者开发而成：  路由，调试，和Web服务器网络接口(Web Server Gateway Inte">
@@ -355,8 +355,12 @@
 </ul>
 </li>
 <li><p>所有Flask程序都必须构建一个<strong>程序实例</strong>。Web程序使用一种Web服务器网关接口（WSGI）的协议，把接收自服务器的所有请求都交给这个对象处理。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">from flask import Flask</div><div class="line">app = Flask(__name__) </div><div class="line">      @app.route(&apos;/&apos;)</div><div class="line">def index():</div><div class="line">	return &apos;&lt;h1&gt;hello world!&lt;/h1&gt;&apos;</div></pre></td></tr></table></figure>
-</li>
+<pre><code>from flask import Flask
+app = Flask(__name__) 
+@app.route(&apos;/&apos;)
+def index():
+    return &apos;&lt;h1&gt;hello world!&lt;/h1&gt;&apos; 
+</code></pre></li>
 <li><p><code>(env) $ python name.py</code></p>
 </li>
 <li>打开提示<strong>网络地址和端口</strong>默认的是<code>http://127.0.0.1:5000</code></li>

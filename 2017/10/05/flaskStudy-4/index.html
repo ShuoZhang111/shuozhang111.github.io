@@ -95,15 +95,18 @@
 
 
 
+<meta name="description" content="在之前我们介绍Flask的时候就说过Flask是一个非常灵活的框架，而且Flask也是支持好多的拓展。 Flask拓展Flask被设计为可拓展形式，故而没有提供一些重要的功能，例如数据库和用户认证，所以开发者可以自由选择最合适的包，或者按照需求自行开发。当然了Flask有好多的拓展，就像海底之冰山我一直都是对未知的事物抱有一颗敬畏之心，所以我肯定是不会，而且也不必了解全部的拓展包。我们就只谈一下最">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flask学习笔记（四）">
 <meta property="og:url" content="http://yoursite.com/2017/10/05/flaskStudy-4/index.html">
 <meta property="og:site_name" content="张硕的博客">
+<meta property="og:description" content="在之前我们介绍Flask的时候就说过Flask是一个非常灵活的框架，而且Flask也是支持好多的拓展。 Flask拓展Flask被设计为可拓展形式，故而没有提供一些重要的功能，例如数据库和用户认证，所以开发者可以自由选择最合适的包，或者按照需求自行开发。当然了Flask有好多的拓展，就像海底之冰山我一直都是对未知的事物抱有一颗敬畏之心，所以我肯定是不会，而且也不必了解全部的拓展包。我们就只谈一下最">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow2flmior.bkt.clouddn.com/image/blog/6.jpg">
-<meta property="og:updated_time" content="2017-10-05T05:04:44.244Z">
+<meta property="og:updated_time" content="2017-10-05T07:02:09.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flask学习笔记（四）">
+<meta name="twitter:description" content="在之前我们介绍Flask的时候就说过Flask是一个非常灵活的框架，而且Flask也是支持好多的拓展。 Flask拓展Flask被设计为可拓展形式，故而没有提供一些重要的功能，例如数据库和用户认证，所以开发者可以自由选择最合适的包，或者按照需求自行开发。当然了Flask有好多的拓展，就像海底之冰山我一直都是对未知的事物抱有一颗敬畏之心，所以我肯定是不会，而且也不必了解全部的拓展包。我们就只谈一下最">
 <meta name="twitter:image" content="http://ow2flmior.bkt.clouddn.com/image/blog/6.jpg">
 
 
@@ -314,7 +317,40 @@
       
 
       
-        <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/6.jpg" alt="6"></p>
+        <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/6.jpg" alt="6"><br>在之前我们介绍Flask的时候就说过Flask是一个非常灵活的框架，而且Flask也是支持好多的拓展。</p>
+<h3 id="Flask拓展"><a href="#Flask拓展" class="headerlink" title="Flask拓展"></a>Flask拓展</h3><p>Flask被设计为可拓展形式，故而没有提供一些重要的功能，例如数据库和用户认证，所以开发者可以自由选择最合适的包，或者按照需求自行开发。<br>当然了Flask有好多的拓展，就像<strong>海底之冰山</strong>我一直都是对未知的事物抱有一颗敬畏之心，所以我肯定是不会，而且也不必了解全部的拓展包。我们就只谈一下最常用的一些包。</p>
+<h4 id="Flask-Script支持命令行选项"><a href="#Flask-Script支持命令行选项" class="headerlink" title="Flask-Script支持命令行选项"></a>Flask-Script支持命令行选项</h4><p>当我们使用Flask开发Web服务器的时候会支持很多启动设置选项，但只能在脚本中作为参数传递给app.run()函数，这样的操作是很不方便的，传递设置选项的理想方式就是使用命令行参数。<br>Flask-Script是Flask拓展，为Flask程序添加了一个命令行解析器。Flask-Script自带了一组常用的选项，而且还支持自定义命令。我们使用pip进行安装。</p>
+<p><code>(env)$ pip install flask-script</code></p>
+<pre><code>from flask.ext.script import Manager
+from flask import Flask
+app = Flask(__name__)
+manager = Manager(app)
+@app.route
+def index():
+    return &apos;&lt;h1&gt;Hello World！&lt;/h1&gt;&apos;
+
+if __name__ == &apos;__main__&apos;:
+    manager.run()
+</code></pre><p>上面我们做了一个简单的示例。专门为Flask开发的拓展都暴露在flask.ext命名空间下。Flask-Script输出了一个名为Manager的类，可以从flask.ext.script中引入。<br>当我们启动这个程序的时候就可以解析命令了。</p>
+<pre><code>$python hello.py
+usage: hello.py [-h] {shell,runserver} ...
+
+positional arguments:
+  {shell,runserver}
+    shell             在Flask应用上下文中运行Python Shell
+    runserver         运行Flask开发服务器：app.run()
+
+optional arguments:
+  -h --help            显示帮助信息并退出
+</code></pre><p>shell命令用于在程序上下文中启动Python Shell会话，可以使用Shell维护，调试异常。<br>runserver命令用来启动Web服务器，运行<code>python hello.py runserver</code>将以调试模式启动Web服务器。</p>
+<pre><code>(env)$python hello.py runserver --help 
+usage: hello.py runserver [-h] [-t HOST] [-p PORT] [--threaded]
+                            [--processes PROCESSES] [--passthrough-errors] [-d] [-r]
+</code></pre><p>我们是这样运行上面的程序的</p>
+<pre><code>(env)$ python hello.py runserver --host 0.0.0.0
+ * Running on http://0.0.0.0:5000/
+ * Restarting with reloader
+</code></pre><p>现在我们我们就可以访问了。关于–host后的参数，这里并不进行详细讲解。</p>
 
       
     </div>
@@ -399,8 +435,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -447,6 +492,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flask拓展"><span class="nav-number">1.</span> <span class="nav-text">Flask拓展</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Flask-Script支持命令行选项"><span class="nav-number">1.1.</span> <span class="nav-text">Flask-Script支持命令行选项</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -245,6 +245,188 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/05/flaskStudy-6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FISH_SHUO">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/ss.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张硕的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/05/flaskStudy-6/" itemprop="url">Flask学习笔记（六）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-05T21:48:58+08:00">
+                2017-10-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/9.jpg" alt="8"><br>在前面我们学习了Jinja2模板和Flask的render-template模板引擎，当我们想要做一个比较漂亮美观的网站的时候，我们总是先想到有没有比较好看的框架。这一篇我们了解以下Flask的Bootstrap</p>
+<h3 id="使用Flask-Bootstrap"><a href="#使用Flask-Bootstrap" class="headerlink" title="使用Flask-Bootstrap"></a>使用Flask-Bootstrap</h3><p><a href="http://getbootstrap.com/" target="_blank" rel="external">Bootstrap</a>是Twitter开发的一个开源框架，它提供的用户界面组件可以创建整洁且具有吸引力的网页，而且这些网页还能兼容所有现代Web浏览器。<br>要想在程序中集成Bootstrap，显然要对模板作出必要的改动。不过，Flask有一个Flask-Bootstrap的拓展，简化集成的过程<br><code>(env)$ pip install flask-bootstrap</code><br>和Flask-Script一样也是从flask.ext命名空间中导入。<br>hello.py:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">from flask import Flask, render_template</div><div class="line">from flask.ext.script import Manager</div><div class="line">from flask.ext.bootstrap import BootStrap</div><div class="line"></div><div class="line">app = Flask(__name__)</div><div class="line">manager = Manager(app)</div><div class="line">bootstrap = BootStrap(app)</div><div class="line"></div><div class="line">@app.route(&apos;/&apos;)</div><div class="line">def index():</div><div class="line">    return render_template(&apos;index.html&apos;)</div><div class="line">    </div><div class="line">@app.route(&apos;/user/&lt;name&gt;&apos;)</div><div class="line">def user(name):</div><div class="line">    return render_template(&apos;user.html&apos;.name=name)</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    manager.run()</div></pre></td></tr></table></figure></p>
+<p>./templates/user.html:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&#123;% extends &quot;bootstrap/base.html&quot; %&#125;</div><div class="line"></div><div class="line">&#123;% block title %&#125;Flasky&#123;% endblock %&#125;</div><div class="line"></div><div class="line">&#123;% block navbar %&#125;</div><div class="line">&lt;div class=&quot;navbar navbar-inverse&quot; role=&quot;navigation&quot;&gt;</div><div class="line">    &lt;div class=&quot;container&quot;&gt;</div><div class="line">        &lt;div class=&quot;navbar-header&quot;&gt;</div><div class="line">            &lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; </div><div class="line">             data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-collapse&quot;&gt;</div><div class="line">                &lt;span class=&quot;sr-only&quot;&gt;Toggle navigation&lt;/span&gt;</div><div class="line">                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;</div><div class="line">                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;</div><div class="line">                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;</div><div class="line">            &lt;/button&gt;</div><div class="line">            &lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;Flasky&lt;/a&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;navbar-collapse collapse&quot;&gt;</div><div class="line">            &lt;ul class=&quot;nav navbar-nav&quot;&gt;</div><div class="line">                &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</div><div class="line">            &lt;/ul&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&#123;% endblock %&#125;</div><div class="line"></div><div class="line">&#123;% block content %&#125;</div><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">   &lt;div class=&quot;page-header&quot;&gt;</div><div class="line">       &lt;h1&gt;hello,&#123;&#123; name &#125;&#125;!&lt;/h1&gt;</div><div class="line">   &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&#123;% endblock %&#125;</div></pre></td></tr></table></figure></p>
+<p>Jinja2中的extends指令从Flask-Bootstrap中导入bootstrap/base.html,从而实现模板继承。Flask-Bootstrap中的基类模板提供了一个网页框架，引入了Bootstrap中的所有CSS鹤JavaScript文件。基类中定义了可以在衍生模板中使用的重定义的块。block和endblock指令定义的块中的内容可以添加到基模板中/<br>我们在user.html模板中定义了三个块，分别名为title，navbar和content。这些块都是基模板提供的，可以在衍生模板中重新定义。</p>
+<h4 id="Flask-Bootstrap基模板中定义的块"><a href="#Flask-Bootstrap基模板中定义的块" class="headerlink" title="Flask-Bootstrap基模板中定义的块"></a>Flask-Bootstrap基模板中定义的块</h4><table>
+<thead>
+<tr>
+<th>块名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>doc</td>
+<td>整个HTML文档</td>
+</tr>
+<tr>
+<td>html_attribs</td>
+<td><html>标签的属性</html></td>
+</tr>
+<tr>
+<td>html</td>
+<td><html>标签的内容</html></td>
+</tr>
+<tr>
+<td>head</td>
+<td><head>标签的内容</head></td>
+</tr>
+<tr>
+<td>title</td>
+<td><title>标签的内容</title></td>
+</tr>
+<tr>
+<td>metas</td>
+<td>一组<meta>标签</td>
+</tr>
+<tr>
+<td>styles</td>
+<td>层叠样式表定义</td>
+</tr>
+<tr>
+<td>body_attribs</td>
+<td><body>标签的属性</body></td>
+</tr>
+<tr>
+<td>body</td>
+<td><body>标签中的内容</body></td>
+</tr>
+<tr>
+<td>navbar</td>
+<td>用户定义的导航条</td>
+</tr>
+<tr>
+<td>content</td>
+<td>用户定义的页面内容</td>
+</tr>
+<tr>
+<td>scripts</td>
+<td>文档底部的JavaScipt声明</td>
+</tr>
+</tbody>
+</table>
+<p>表中的很多块都是Flask-Bootstrap自用的，如果直接重定义可能会导致一些问题。Bootstrap所需的文件在styles和scripts块中声明。如过程序需要向已经有内容的块中添加新内容，必须使用Jinja2提供的super()函数。例如，在衍生模板中添加新的JavaScript文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;% block script %&#125;</div><div class="line">&#123;&#123; super() &#125;&#125;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;my-script.js&quot;&gt;&lt;/script&gt;</div><div class="line">&#123;% endblock %&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/05/flaskStudy-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1341,7 +1523,7 @@ def index():
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

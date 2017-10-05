@@ -245,6 +245,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/05/flaskStudy-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FISH_SHUO">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/ss.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张硕的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/05/flaskStudy-5/" itemprop="url">Flask 学习笔记（五）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-05T17:33:09+08:00">
+                2017-10-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/8.jpg" alt="8"><br>我记得在最早的一篇文章中我们说过Flask主要有两个依赖，这一篇文章我为大家介绍以下Flask的第二个依赖，<strong>模板</strong><br>要想开发出易于维护的程序，关键在于编写形式简洁且结构良好，当我们开发比较大的项目的时候，我们往往会使用到使用程序中的真实值去替换模板中的变量，最终得到响应字符串，这一过程我们称作渲染。</p>
+<h3 id="Jinja2模块引擎"><a href="#Jinja2模块引擎" class="headerlink" title="Jinja2模块引擎"></a>Jinja2模块引擎</h3><p>形式最简单的Jinja2模板就是一个包含响应文本的文件。</p>
+<h4 id="简单的例子"><a href="#简单的例子" class="headerlink" title="简单的例子"></a>简单的例子</h4><p>我们新建两个模块，样式是这样的：./templates/index.html ./templates/user.html<br>./templates/index.html<br><code>&lt;h1&gt;Hello World!&lt;/h1&gt;</code><br>./templates/user.html<br><code>&lt;h1&gt;Hello &lt;/h1&gt;</code><br>再新建一个渲染模块，格式是这样的: ./hello.py<br>./hello.py</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">from flask import Flask, render_template</div><div class="line">from flask.ext.script import Manager </div><div class="line">app = Flask(__name__)</div><div class="line">manager = Manager(app)</div><div class="line">@app.route(&apos;/&apos;)</div><div class="line">def index():</div><div class="line">    return render_template(&apos;index.html&apos;)</div><div class="line">@app.route(&apos;/user/&lt;name&gt;&apos;)</div><div class="line">def user(name):</div><div class="line">    return render_template(&apos;user.html&apos;,name=name)</div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    manager.run()</div></pre></td></tr></table></figure>
+<p>Flask 程序提供了render_template函数把Jinja2模板引擎集成到了程序中。render_template函数的第一个参数是模板的文件名，随后的参数都是键值对，表示模板中变量对应的真实值。</p>
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>上面例中，在模板user.html中使用结构表示一个变量，它是一种特殊的占位符，告诉模板引擎这个位置的值从渲染模块时使用的数据中获取。<br>Jinja2能识别所有类型的变量，甚至是一些复杂的类型，如列表，字典鹤对象，<br>Jinja2可以使用过滤器修改变量，过滤器名添加在变量名之后，中间使用竖线分割。<br><code>hello,</code></p>
+<table>
+<thead>
+<tr>
+<th>过滤器名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>safe</td>
+<td>渲染值是不转义</td>
+</tr>
+<tr>
+<td>capitalize</td>
+<td>把值的首字母转换成大写，其他字母转换成小写</td>
+</tr>
+<tr>
+<td>lower</td>
+<td>把值转换成小写形式</td>
+</tr>
+<tr>
+<td>upper</td>
+<td>把值转换成大写形式</td>
+</tr>
+<tr>
+<td>title</td>
+<td>把值中的每个单词的首字母都转换成大写</td>
+</tr>
+<tr>
+<td>trim</td>
+<td>把值中的首尾空格去掉</td>
+</tr>
+<tr>
+<td>striptags</td>
+<td>渲染之前把值中的所有HTML标签抖删除</td>
+</tr>
+</tbody>
+</table>
+<h4 id="控制语句"><a href="#控制语句" class="headerlink" title="控制语句"></a>控制语句</h4><p>Jinja2提供了多种控制结构，可以用来改变模板的渲染流程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;% if user %&#125;</div><div class="line">    hello, &#123;&#123; user &#125;&#125;!</div><div class="line">&#123;% else %&#125;</div><div class="line">    hello,stranger!</div><div class="line">&#123;% endif %&#125;</div><div class="line">----------------------------------------</div><div class="line">&lt;ul&gt;</div><div class="line">&#123;% for comment in comment %&#125;</div><div class="line">	&lt;li&gt;&#123;&#123; comment &#125;&#125;&lt;/li&gt;</div><div class="line">&#123;% endfor %&#125;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line">&#123;% extents &apos;base.html&apos;%&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/05/flaskStudy-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1176,7 +1341,7 @@ def index():
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

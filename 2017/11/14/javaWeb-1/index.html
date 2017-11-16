@@ -95,13 +95,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="张硕的博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="I/O问题可以说是当今Web应用中所面临的重要问题之一，因为在当今这个海量数据的时代，这些数据都是随处流动的。这些流动就都涉及了I/O问题，可以说很多Web应用系统的瓶颈都是I/O瓶颈。 Java的I/O类库的基本架构Java的I/O操作类在包java.io下，大概有近80个类。大概分为四组:  基于自负操作的I/O接口: InputStream和OutputStream. 基于字符操作的I/O">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java I&#x2F;O的工作机制">
+<meta property="og:url" content="http://yoursite.com/2017/11/14/javaWeb-1/index.html">
 <meta property="og:site_name" content="张硕的博客">
+<meta property="og:description" content="I/O问题可以说是当今Web应用中所面临的重要问题之一，因为在当今这个海量数据的时代，这些数据都是随处流动的。这些流动就都涉及了I/O问题，可以说很多Web应用系统的瓶颈都是I/O瓶颈。 Java的I/O类库的基本架构Java的I/O操作类在包java.io下，大概有近80个类。大概分为四组:  基于自负操作的I/O接口: InputStream和OutputStream. 基于字符操作的I/O">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ow2flmior.bkt.clouddn.com/image/blog/8.jpg">
+<meta property="og:updated_time" content="2017-11-14T05:53:53.089Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="张硕的博客">
+<meta name="twitter:title" content="Java I&#x2F;O的工作机制">
+<meta name="twitter:description" content="I/O问题可以说是当今Web应用中所面临的重要问题之一，因为在当今这个海量数据的时代，这些数据都是随处流动的。这些流动就都涉及了I/O问题，可以说很多Web应用系统的瓶颈都是I/O瓶颈。 Java的I/O类库的基本架构Java的I/O操作类在包java.io下，大概有近80个类。大概分为四组:  基于自负操作的I/O接口: InputStream和OutputStream. 基于字符操作的I/O">
+<meta name="twitter:image" content="http://ow2flmior.bkt.clouddn.com/image/blog/8.jpg">
 
 
 
@@ -131,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/14/javaWeb-1/"/>
 
 
 
 
 
-  <title>归档 | 张硕的博客</title>
+  <title>Java I/O的工作机制 | 张硕的博客</title>
   
 
 
@@ -156,7 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -240,411 +246,175 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/14/javaWeb-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FISH_SHUO">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/ss.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张硕的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Java I/O的工作机制</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T12:48:23+08:00">
+                2017-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 11 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/15/java-other1/" itemprop="url">
-              
-                <span itemprop="name">java-other1</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-15T08:45:35+08:00"
-              content="2017-11-15" >
-          11-15
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/14/javaWeb-1/" itemprop="url">
-              
-                <span itemprop="name">Java I/O的工作机制</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-14T12:48:23+08:00"
-              content="2017-11-14" >
-          11-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/09/flaskStudy-7/" itemprop="url">
-              
-                <span itemprop="name">Flask学习笔记（七）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-09T12:52:14+08:00"
-              content="2017-10-09" >
-          10-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/8.jpg" alt="8"></p>
+<p>I/O问题可以说是当今Web应用中所面临的重要问题之一，因为在当今这个海量数据的时代，这些数据都是随处流动的。这些流动就都涉及了I/O问题，可以说很多Web应用系统的瓶颈都是I/O瓶颈。</p>
+<h3 id="Java的I-O类库的基本架构"><a href="#Java的I-O类库的基本架构" class="headerlink" title="Java的I/O类库的基本架构"></a>Java的I/O类库的基本架构</h3><p>Java的I/O操作类在包java.io下，大概有近80个类。大概分为四组:</p>
+<ul>
+<li>基于自负操作的I/O接口: InputStream和OutputStream.</li>
+<li>基于字符操作的I/O接口: Writet和Reader.</li>
+<li>基于磁盘操作的I/O接口: File.</li>
+<li>基于网络操作的I/O接口:  Socket.</li>
+</ul>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/05/flaskStudy-6/" itemprop="url">
-              
-                <span itemprop="name">Flask学习笔记（六）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-05T21:48:58+08:00"
-              content="2017-10-05" >
-          10-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/05/flaskStudy-5/" itemprop="url">
-              
-                <span itemprop="name">Flask 学习笔记（五）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-05T17:33:09+08:00"
-              content="2017-10-05" >
-          10-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/05/flaskStudy-4/" itemprop="url">
-              
-                <span itemprop="name">Flask学习笔记（四）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-05T12:45:39+08:00"
-              content="2017-10-05" >
-          10-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/04/flaskStudy-3/" itemprop="url">
-              
-                <span itemprop="name">Flask 学习笔记（三）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-04T00:25:04+08:00"
-              content="2017-10-04" >
-          10-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/25/flaskStudy-2/" itemprop="url">
-              
-                <span itemprop="name">Flask 学习笔记（二）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-25T13:24:55+08:00"
-              content="2017-09-25" >
-          09-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/21/flaskStudy-1/" itemprop="url">
-              
-                <span itemprop="name">Flask 学习笔记（一）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-21T00:23:55+08:00"
-              content="2017-09-21" >
-          09-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/11/effort/" itemprop="url">
-              
-                <span itemprop="name">比你努力的人比你更优秀，比你优秀的人比你更努力</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-11T19:10:08+08:00"
-              content="2017-09-11" >
-          09-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/09/flaskStudy-7/" rel="next" title="Flask学习笔记（七）">
+                <i class="fa fa-chevron-left"></i> Flask学习笔记（七）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/15/java-other1/" rel="prev" title="java-other1">
+                java-other1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -652,6 +422,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -672,8 +446,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -729,6 +512,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java的I-O类库的基本架构"><span class="nav-number">1.</span> <span class="nav-text">Java的I/O类库的基本架构</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -856,6 +655,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 

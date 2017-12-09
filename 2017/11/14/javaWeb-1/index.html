@@ -95,18 +95,18 @@
 
 
 
-<meta name="description" content="I/O问题可以说是当今Web应用中所面临的重要问题之一，因为在当今这个海量数据的时代，这些数据都是随处流动的。这些流动就都涉及了I/O问题，可以说很多Web应用系统的瓶颈都是I/O瓶颈。 Java的I/O类库的基本架构Java的I/O操作类在包java.io下，大概有近80个类。大概分为四组:  基于自负操作的I/O接口: InputStream和OutputStream. 基于字符操作的I/O">
+<meta name="description" content="I/O问题可以说是当今Web应用中所面临的重要问题之一，因为在当今这个海量数据的时代，这些数据都是随处流动的。这些流动就都涉及了I/O问题，可以说很多Web应用系统的瓶颈都是I/O瓶颈。 Java的I/O类库的基本架构Java的I/O操作类在包java.io下，大概有近80个类。大概分为四组:  基于字节操作的I/O接口: InputStream和OutputStream. 基于字符操作的I/O">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java I&#x2F;O的工作机制">
 <meta property="og:url" content="http://yoursite.com/2017/11/14/javaWeb-1/index.html">
 <meta property="og:site_name" content="张硕的博客">
-<meta property="og:description" content="I/O问题可以说是当今Web应用中所面临的重要问题之一，因为在当今这个海量数据的时代，这些数据都是随处流动的。这些流动就都涉及了I/O问题，可以说很多Web应用系统的瓶颈都是I/O瓶颈。 Java的I/O类库的基本架构Java的I/O操作类在包java.io下，大概有近80个类。大概分为四组:  基于自负操作的I/O接口: InputStream和OutputStream. 基于字符操作的I/O">
+<meta property="og:description" content="I/O问题可以说是当今Web应用中所面临的重要问题之一，因为在当今这个海量数据的时代，这些数据都是随处流动的。这些流动就都涉及了I/O问题，可以说很多Web应用系统的瓶颈都是I/O瓶颈。 Java的I/O类库的基本架构Java的I/O操作类在包java.io下，大概有近80个类。大概分为四组:  基于字节操作的I/O接口: InputStream和OutputStream. 基于字符操作的I/O">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow2flmior.bkt.clouddn.com/image/blog/8.jpg">
-<meta property="og:updated_time" content="2017-11-16T08:29:49.961Z">
+<meta property="og:updated_time" content="2017-12-08T01:53:30.372Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java I&#x2F;O的工作机制">
-<meta name="twitter:description" content="I/O问题可以说是当今Web应用中所面临的重要问题之一，因为在当今这个海量数据的时代，这些数据都是随处流动的。这些流动就都涉及了I/O问题，可以说很多Web应用系统的瓶颈都是I/O瓶颈。 Java的I/O类库的基本架构Java的I/O操作类在包java.io下，大概有近80个类。大概分为四组:  基于自负操作的I/O接口: InputStream和OutputStream. 基于字符操作的I/O">
+<meta name="twitter:description" content="I/O问题可以说是当今Web应用中所面临的重要问题之一，因为在当今这个海量数据的时代，这些数据都是随处流动的。这些流动就都涉及了I/O问题，可以说很多Web应用系统的瓶颈都是I/O瓶颈。 Java的I/O类库的基本架构Java的I/O操作类在包java.io下，大概有近80个类。大概分为四组:  基于字节操作的I/O接口: InputStream和OutputStream. 基于字符操作的I/O">
 <meta name="twitter:image" content="http://ow2flmior.bkt.clouddn.com/image/blog/8.jpg">
 
 
@@ -353,10 +353,14 @@
 <p>I/O问题可以说是当今Web应用中所面临的重要问题之一，因为在当今这个海量数据的时代，这些数据都是随处流动的。这些流动就都涉及了I/O问题，可以说很多Web应用系统的瓶颈都是I/O瓶颈。</p>
 <h3 id="Java的I-O类库的基本架构"><a href="#Java的I-O类库的基本架构" class="headerlink" title="Java的I/O类库的基本架构"></a>Java的I/O类库的基本架构</h3><p>Java的I/O操作类在包java.io下，大概有近80个类。大概分为四组:</p>
 <ul>
-<li>基于自负操作的I/O接口: InputStream和OutputStream.</li>
+<li>基于字节操作的I/O接口: InputStream和OutputStream.</li>
 <li>基于字符操作的I/O接口: Writet和Reader.</li>
 <li>基于磁盘操作的I/O接口: File.</li>
-<li>基于网络操作的I/O接口:  Socket.</li>
+<li>基于网络操作的I/O接口: Socket.<br>前两种主要是传输数据的格式，后两者主要是传输数据的方式，但是Socket并不在java.io的包下。I/O的核心问题要么是数据格式影响力了I/O操作，要么是传输方式影响了I/O操作。是一种将什么样的数据写入到什么地方去的问题。</li>
+</ul>
+<h2 id="基于字节的I-O操作接口"><a href="#基于字节的I-O操作接口" class="headerlink" title="基于字节的I/O操作接口"></a>基于字节的I/O操作接口</h2><ul>
+<li>InputStream</li>
+<li>OutputStream</li>
 </ul>
 
       
@@ -522,7 +526,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java的I-O类库的基本架构"><span class="nav-number">1.</span> <span class="nav-text">Java的I/O类库的基本架构</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java的I-O类库的基本架构"><span class="nav-number">1.</span> <span class="nav-text">Java的I/O类库的基本架构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于字节的I-O操作接口"><span class="nav-number"></span> <span class="nav-text">基于字节的I/O操作接口</span></a></div>
             
 
           </div>

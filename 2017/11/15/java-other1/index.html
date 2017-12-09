@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="Servlet编写过滤器Servlet过滤器可以动态的拦截请求和响应，以变换或使用    包含在请求或相应中的信息。 Struts.xml文件的配置主要属性的说明：">
+<meta name="description" content="Servlet 中的初始化参数在web.xml中1234&amp;lt;init-param&amp;gt;	&amp;lt;param-name&amp;gt;admin-Email&amp;lt;/param-name&amp;gt;	&amp;lt;param-value&amp;gt;***@***.com&amp;lt;/param-value&amp;gt;&amp;lt;/init-param&amp;gt; 在servlet代码中1getServletConfig().get">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java-other1">
 <meta property="og:url" content="http://yoursite.com/2017/11/15/java-other1/index.html">
 <meta property="og:site_name" content="张硕的博客">
-<meta property="og:description" content="Servlet编写过滤器Servlet过滤器可以动态的拦截请求和响应，以变换或使用    包含在请求或相应中的信息。 Struts.xml文件的配置主要属性的说明：">
+<meta property="og:description" content="Servlet 中的初始化参数在web.xml中1234&amp;lt;init-param&amp;gt;	&amp;lt;param-name&amp;gt;admin-Email&amp;lt;/param-name&amp;gt;	&amp;lt;param-value&amp;gt;***@***.com&amp;lt;/param-value&amp;gt;&amp;lt;/init-param&amp;gt; 在servlet代码中1getServletConfig().get">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-15T00:56:24.534Z">
+<meta property="og:updated_time" content="2017-12-09T03:11:07.326Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java-other1">
-<meta name="twitter:description" content="Servlet编写过滤器Servlet过滤器可以动态的拦截请求和响应，以变换或使用    包含在请求或相应中的信息。 Struts.xml文件的配置主要属性的说明：">
+<meta name="twitter:description" content="Servlet 中的初始化参数在web.xml中1234&amp;lt;init-param&amp;gt;	&amp;lt;param-name&amp;gt;admin-Email&amp;lt;/param-name&amp;gt;	&amp;lt;param-value&amp;gt;***@***.com&amp;lt;/param-value&amp;gt;&amp;lt;/init-param&amp;gt; 在servlet代码中1getServletConfig().get">
 
 
 
@@ -347,7 +347,12 @@
       
 
       
-        <h3 id="Servlet编写过滤器"><a href="#Servlet编写过滤器" class="headerlink" title="Servlet编写过滤器"></a>Servlet编写过滤器</h3><p>Servlet过滤器可以动态的拦截请求和响应，以变换或使用    包含在请求或相应中的信息。</p>
+        <h3 id="Servlet-中的初始化参数"><a href="#Servlet-中的初始化参数" class="headerlink" title="Servlet 中的初始化参数"></a>Servlet 中的初始化参数</h3><p>在web.xml中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;init-param&gt;</div><div class="line">	&lt;param-name&gt;admin-Email&lt;/param-name&gt;</div><div class="line">	&lt;param-value&gt;***@***.com&lt;/param-value&gt;</div><div class="line">&lt;/init-param&gt;</div></pre></td></tr></table></figure></p>
+<p>在servlet代码中<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getServletConfig().getInitParameter(<span class="string">"admin-Email"</span>)</div></pre></td></tr></table></figure></p>
+<p><strong>在servlet初始化之前不能使用servlet初始化参数</strong></p>
+<p><strong>servlet初始化参数只能读一次就是在容器初始化servlet的时候</strong></p>
+<h3 id="关于Windows-Git-Bash-javac-乱码"><a href="#关于Windows-Git-Bash-javac-乱码" class="headerlink" title="关于Windows Git Bash javac 乱码"></a>关于Windows Git Bash javac 乱码</h3><p>在%git/etc/bash.bashrc最后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alias javac=&apos;javac -J-Dfile.encoding=UTF-8&apos;</div><div class="line">alias java=&apos;java -Dfile.encoding=UTF-8&apos;</div></pre></td></tr></table></figure></p>
+<h3 id="Servlet编写过滤器"><a href="#Servlet编写过滤器" class="headerlink" title="Servlet编写过滤器"></a>Servlet编写过滤器</h3><p>Servlet过滤器可以动态的拦截请求和响应，以变换或使用    包含在请求或相应中的信息。</p>
 <h3 id="Struts-xml文件的配置"><a href="#Struts-xml文件的配置" class="headerlink" title="Struts.xml文件的配置"></a>Struts.xml文件的配置</h3><p>主要属性的说明：</p>
 
       
@@ -513,7 +518,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet编写过滤器"><span class="nav-number">1.</span> <span class="nav-text">Servlet编写过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Struts-xml文件的配置"><span class="nav-number">2.</span> <span class="nav-text">Struts.xml文件的配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet-中的初始化参数"><span class="nav-number">1.</span> <span class="nav-text">Servlet 中的初始化参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于Windows-Git-Bash-javac-乱码"><span class="nav-number">2.</span> <span class="nav-text">关于Windows Git Bash javac 乱码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet编写过滤器"><span class="nav-number">3.</span> <span class="nav-text">Servlet编写过滤器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Struts-xml文件的配置"><span class="nav-number">4.</span> <span class="nav-text">Struts.xml文件的配置</span></a></li></ol></div>
             
 
           </div>

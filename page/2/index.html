@@ -255,6 +255,195 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/21/flaskStudy-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="FISH_SHUO">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="张硕的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/21/flaskStudy-1/" itemprop="url">Flask 学习笔记（一）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-21T00:23:55+08:00">
+                2017-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/2.jpg" alt="1"></p>
+<p>其实本文与其说是<strong>Flask 学习笔记</strong>不如说是<strong>Flask Web开发</strong>基于Python的Web应用开发实战<strong>的读书笔记</strong></p>
+<h3 id="Flask简介"><a href="#Flask简介" class="headerlink" title="Flask简介"></a>Flask简介</h3><p>在大多数标准中<a href="http://flask.pocoo.org" target="_blank" rel="external">Flask</a>都算是一个小型框架，但是小并不意味者它比其他框架功能少。</p>
+<p>Flask有两个主要依赖 <strong>Werkzeug和jinja2</strong>这两个依赖都是由Flask核心开发者开发而成：</p>
+<ul>
+<li><p>路由，调试，和Web服务器网络接口(Web Server Gateway Interface,WSGI)子系统由<a href="http://werkzeug.pocoo.org" target="_blank" rel="external">Werkzeug</a>提供。</p>
+</li>
+<li><p>模块系统由<a href="http://jiaja.pocoo.org" target="_blank" rel="external">Jinja2</a>提供。 </p>
+</li>
+</ul>
+<p>Flask并不原生支持数据库访问，Web表单验证和用户认证等高级功能。这些功能以及其他大多Web程序中需要的核心功能都是以拓展形式实现。</p>
+<h3 id="Flask安装"><a href="#Flask安装" class="headerlink" title="Flask安装"></a>Flask安装</h3><p>既然Flask这么自由可定制那么我们是如何使用它的呢?</p>
+<ul>
+<li><strong>virtualenv</strong> 虚拟环境是非常有用的，可以在系统的Python解释器避免包的混乱和版本冲突。为每个程序创建单独虚拟环境。<ul>
+<li><strong>安装</strong><ul>
+<li>Linux(Ubutu)  <code>sudo apt-get install python-virtualenv</code></li>
+<li>Windowns      <code>easy-install virtualenv</code></li>
+</ul>
+</li>
+<li><strong>使用</strong><ul>
+<li>cd 到对应文件夹 <code>virtualenv --no-site-packages {name}</code>即可创建没有任何拓展包的虚拟环境</li>
+<li>Linux运行 <code>source {name}/bin/activate</code></li>
+<li>Windows   <code>{name}/bin/activate</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>使用pip安装Python包</strong><ul>
+<li><code>(env) $ pip install flask</code><ul>
+<li><code>(env) $ python</code></li>
+<li><code>&gt;&gt;&gt; import flask</code></li>
+<li><code>&gt;&gt;&gt;</code></li>
+</ul>
+</li>
+<li>没有错误提示即说明安装成功。<h3 id="Flask使用"><a href="#Flask使用" class="headerlink" title="Flask使用"></a>Flask使用</h3></li>
+</ul>
+</li>
+<li><p>所有Flask程序都必须构建一个<strong>程序实例</strong>。Web程序使用一种Web服务器网关接口（WSGI）的协议，把接收自服务器的所有请求都交给这个对象处理。</p>
+<pre><code>from flask import Flask
+app = Flask(__name__) 
+@app.route(&apos;/&apos;)
+def index():
+    return &apos;&lt;h1&gt;hello world!&lt;/h1&gt;&apos; 
+</code></pre></li>
+<li><p><code>(env) $ python name.py</code></p>
+</li>
+<li>打开提示<strong>网络地址和端口</strong>默认的是<code>http://127.0.0.1:5000</code></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/11/effort/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -596,7 +785,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -607,7 +796,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

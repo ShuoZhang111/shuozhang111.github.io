@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="张硕的博客">
 <meta property="og:description" content="作为一个使用Python-flask转JavaWeb的菜鸡来说刚开始各种框架的配置当然是感到各种不爽。还在迷茫。还是说说最近接触项目的小功能吧。 使用Apache Poi包实现导出Excel说一下项目背景吧：把界面查询到的结果数据导出到Excel并实现下载。初略看了一下业务代码的实现，就是简单的数据库查询包装成Json格式的字符串，返回到前端。这里的坑就比较大了，说一下我踩坑的经历吧。刚开始我以为">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-07T08:32:03.319Z">
+<meta property="og:updated_time" content="2017-12-18T02:46:49.406Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记Apache POI 导出数据到Excel">
 <meta name="twitter:description" content="作为一个使用Python-flask转JavaWeb的菜鸡来说刚开始各种框架的配置当然是感到各种不爽。还在迷茫。还是说说最近接触项目的小功能吧。 使用Apache Poi包实现导出Excel说一下项目背景吧：把界面查询到的结果数据导出到Excel并实现下载。初略看了一下业务代码的实现，就是简单的数据库查询包装成Json格式的字符串，返回到前端。这里的坑就比较大了，说一下我踩坑的经历吧。刚开始我以为">
@@ -348,7 +348,7 @@
 
       
         <p>作为一个使用Python-flask转JavaWeb的菜鸡来说刚开始各种框架的配置当然是感到各种不爽。还在迷茫。<br>还是说说最近接触项目的小功能吧。</p>
-<h3 id="使用Apache-Poi包实现导出Excel"><a href="#使用Apache-Poi包实现导出Excel" class="headerlink" title="使用Apache Poi包实现导出Excel"></a>使用Apache Poi包实现导出Excel</h3><p>说一下项目背景吧：把界面查询到的结果数据导出到Excel并实现下载。初略看了一下业务代码的实现，就是简单的数据库查询包装成Json格式的字符串，返回到前端。<br>这里的坑就比较大了，说一下我踩坑的经历吧。<br>刚开始我以为会很简单，在前端界面得到ClassName和对应的MethodName。正好Java有个映射，我们可以通过类名和方法名就可以直接调用查询数据库的方法。但是我不知道为什么，在js中找不到ClassName和MethodName，没有办法。这里有一点要注意的是，我们即使得到了这两个方法也要注意数据库查询的分页问题。没办法我没有得到，所以我自己重写了查询数据库的无分页方法。</p>
+<h3 id="使用Apache-Poi包实现导出Excel"><a href="#使用Apache-Poi包实现导出Excel" class="headerlink" title="使用Apache Poi包实现导出Excel"></a>使用Apache Poi包实现导出Excel</h3><p>说一下项目背景吧：把界面查询到的结果数据导出到Excel并实现下载。初略看了一下业务代码的实现，就是简单的数据库查询包装成Json格式的字符串，返回到前端。<br>这里的坑就比较大了，说一下我踩坑的经历吧。<br>刚开始我以为会很简单，在前端界面得到ClassName和对应的MethodName。正好Java有个映射，我们可以通过类名和方法名就可以直接调用查询数据库的方法。但是我不知道为什么，在js中找不到ClassName和MethodName，没有办法。这里有一点要注意的是，我们即使得到了这两个方法也要注意数据库查询的分页问题。没办法我没有得到，所以我自己重写了查询数据库的无分页方法。<br><a id="more"></a></p>
 <h3 id="Apache-POI组件包含的类和方法"><a href="#Apache-POI组件包含的类和方法" class="headerlink" title="Apache POI组件包含的类和方法"></a>Apache POI组件包含的类和方法</h3><ul>
 <li>POIFS: 此组件是所有其他POI元件的基本因素。它被用来明确地读取不同的文件。</li>
 <li>HSSF: 它被用来读取和写入MS-Excel文件的xls格式。</li>

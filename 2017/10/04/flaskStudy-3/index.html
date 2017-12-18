@@ -103,7 +103,7 @@
 <meta property="og:description" content="前面我们已经练习了一个最简单的Flask程序，下面我们更加深入了解一下Flask的工作方式 请求上下文Flask 从客户端收到请求时，要让视图函数能访问一些对象，这样才能处理请求。要让视图函数能够访问请求对象，一个显而易见的方法就是将其作为参数传入视图函数不过这样会导致程序中每个视图函数都增加一个参数为了避免大量可有可无的参数，Flask使用上下文临时吧某些对象变为全局可访问。有了上下文，就可以">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow2flmior.bkt.clouddn.com/image/blog/7.jpg">
-<meta property="og:updated_time" content="2017-11-14T02:52:10.774Z">
+<meta property="og:updated_time" content="2017-12-18T02:42:26.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flask 学习笔记（三）">
 <meta name="twitter:description" content="前面我们已经练习了一个最简单的Flask程序，下面我们更加深入了解一下Flask的工作方式 请求上下文Flask 从客户端收到请求时，要让视图函数能访问一些对象，这样才能处理请求。要让视图函数能够访问请求对象，一个显而易见的方法就是将其作为参数传入视图函数不过这样会导致程序中每个视图函数都增加一个参数为了避免大量可有可无的参数，Flask使用上下文临时吧某些对象变为全局可访问。有了上下文，就可以">
@@ -358,7 +358,8 @@ def index():
     user_agent = request.headers.get(&apos;User-Agent&apos;)
     return &apos;&lt;p&gt;Your browser is %s&lt;/p&gt;&apos; % user_agent 
 </code></pre><p>在这段视图函数我们把request当作全局变量来使用。事实上，request不可能是全局变量。在多线程服务器中，多个线程同时处理不同客户端发送的不同请求时，每个线程看到的request必然是不相同的。Flask使用上下文让特定的变量在一个线程中全局可访问，与此同时不干扰其他线程。</p>
-<h4 id="Flask上下文全局变量"><a href="#Flask上下文全局变量" class="headerlink" title="Flask上下文全局变量"></a>Flask上下文全局变量</h4><table>
+<h4 id="Flask上下文全局变量"><a href="#Flask上下文全局变量" class="headerlink" title="Flask上下文全局变量"></a>Flask上下文全局变量</h4><a id="more"></a>
+<table>
 <thead>
 <tr>
 <th>变量名</th>

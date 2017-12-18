@@ -103,7 +103,7 @@
 <meta property="og:description" content="在之前我们介绍Flask的时候就说过Flask是一个非常灵活的框架，而且Flask也是支持好多的拓展。 Flask拓展Flask被设计为可拓展形式，故而没有提供一些重要的功能，例如数据库和用户认证，所以开发者可以自由选择最合适的包，或者按照需求自行开发。当然了Flask有好多的拓展，就像海底之冰山我一直都是对未知的事物抱有一颗敬畏之心，所以我肯定是不会，而且也不必了解全部的拓展包。我们就只谈一下最">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow2flmior.bkt.clouddn.com/image/blog/6.jpg">
-<meta property="og:updated_time" content="2017-11-14T02:52:14.408Z">
+<meta property="og:updated_time" content="2017-12-18T02:42:34.790Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flask学习笔记（四）">
 <meta name="twitter:description" content="在之前我们介绍Flask的时候就说过Flask是一个非常灵活的框架，而且Flask也是支持好多的拓展。 Flask拓展Flask被设计为可拓展形式，故而没有提供一些重要的功能，例如数据库和用户认证，所以开发者可以自由选择最合适的包，或者按照需求自行开发。当然了Flask有好多的拓展，就像海底之冰山我一直都是对未知的事物抱有一颗敬畏之心，所以我肯定是不会，而且也不必了解全部的拓展包。我们就只谈一下最">
@@ -351,7 +351,7 @@
       
         <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/6.jpg" alt="6"><br>在之前我们介绍Flask的时候就说过Flask是一个非常灵活的框架，而且Flask也是支持好多的拓展。</p>
 <h3 id="Flask拓展"><a href="#Flask拓展" class="headerlink" title="Flask拓展"></a>Flask拓展</h3><p>Flask被设计为可拓展形式，故而没有提供一些重要的功能，例如数据库和用户认证，所以开发者可以自由选择最合适的包，或者按照需求自行开发。<br>当然了Flask有好多的拓展，就像<strong>海底之冰山</strong>我一直都是对未知的事物抱有一颗敬畏之心，所以我肯定是不会，而且也不必了解全部的拓展包。我们就只谈一下最常用的一些包。</p>
-<h4 id="Flask-Script支持命令行选项"><a href="#Flask-Script支持命令行选项" class="headerlink" title="Flask-Script支持命令行选项"></a>Flask-Script支持命令行选项</h4><p>当我们使用Flask开发Web服务器的时候会支持很多启动设置选项，但只能在脚本中作为参数传递给app.run()函数，这样的操作是很不方便的，传递设置选项的理想方式就是使用命令行参数。<br>Flask-Script是Flask拓展，为Flask程序添加了一个命令行解析器。Flask-Script自带了一组常用的选项，而且还支持自定义命令。我们使用pip进行安装。</p>
+<h4 id="Flask-Script支持命令行选项"><a href="#Flask-Script支持命令行选项" class="headerlink" title="Flask-Script支持命令行选项"></a>Flask-Script支持命令行选项</h4><p>当我们使用Flask开发Web服务器的时候会支持很多启动设置选项，但只能在脚本中作为参数传递给app.run()函数，这样的操作是很不方便的，传递设置选项的理想方式就是使用命令行参数。<br>Flask-Script是Flask拓展，为Flask程序添加了一个命令行解析器。Flask-Script自带了一组常用的选项，而且还支持自定义命令。我们使用pip进行安装。<br><a id="more"></a></p>
 <p><code>(env)$ pip install flask-script</code></p>
 <pre><code>from flask.ext.script import Manager
 from flask import Flask

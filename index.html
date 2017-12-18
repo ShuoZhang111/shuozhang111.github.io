@@ -489,30 +489,15 @@
 
       
         
-          
-            <p>作为一个使用Python-flask转JavaWeb的菜鸡来说刚开始各种框架的配置当然是感到各种不爽。还在迷茫。<br>还是说说最近接触项目的小功能吧。</p>
-<h3 id="使用Apache-Poi包实现导出Excel"><a href="#使用Apache-Poi包实现导出Excel" class="headerlink" title="使用Apache Poi包实现导出Excel"></a>使用Apache Poi包实现导出Excel</h3><p>说一下项目背景吧：把界面查询到的结果数据导出到Excel并实现下载。初略看了一下业务代码的实现，就是简单的数据库查询包装成Json格式的字符串，返回到前端。<br>这里的坑就比较大了，说一下我踩坑的经历吧。<br>刚开始我以为会很简单，在前端界面得到ClassName和对应的MethodName。正好Java有个映射，我们可以通过类名和方法名就可以直接调用查询数据库的方法。但是我不知道为什么，在js中找不到ClassName和MethodName，没有办法。这里有一点要注意的是，我们即使得到了这两个方法也要注意数据库查询的分页问题。没办法我没有得到，所以我自己重写了查询数据库的无分页方法。</p>
-<h3 id="Apache-POI组件包含的类和方法"><a href="#Apache-POI组件包含的类和方法" class="headerlink" title="Apache POI组件包含的类和方法"></a>Apache POI组件包含的类和方法</h3><ul>
-<li>POIFS: 此组件是所有其他POI元件的基本因素。它被用来明确地读取不同的文件。</li>
-<li>HSSF: 它被用来读取和写入MS-Excel文件的xls格式。</li>
-<li>XSSF: 它是用于MS-Excel中XLSX文件格式。</li>
-<li>HPSF: 它用来提取MS-Office文件属性设置。+</li>
-<li>HWPF: 它是用来读取和写入MS-Word的文档扩展名的文件。</li>
-<li>XWPF: 它是用来读取和写入MS-Word的docx扩展名的文件。</li>
-<li>HSLF: 它是用于读取，创建和编辑PowerPoint演示文稿。</li>
-<li>HDGF: 它包含类和方法为MS-Visio的二进制文件。</li>
-<li>HPBF: 它被用来读取和写入MS-Publisher文件。<br>我在这里只说一下关于XSSF的简单使用，而且只是一个导出的小案例。</li>
-</ul>
-<h3 id="简单教程"><a href="#简单教程" class="headerlink" title="简单教程"></a>简单教程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">HSSFWorkbook wb = new HSSFWorkbook();//类似于新建一个Excel文件</div><div class="line">HSSFSheet sheet = wb.createSheet();//类似于Excel中的sheet</div><div class="line">HSSFRow row = sheet.createRow(0);//类似于sheet中的每一行</div><div class="line">HSSFCell cell = null;//类似于sheet中的单元格</div></pre></td></tr></table></figure>
-<h3 id="贴一下代码"><a href="#贴一下代码" class="headerlink" title="贴一下代码"></a>贴一下代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div></pre></td><td class="code"><pre><div class="line">import javax.servlet.ServletOutputStream;</div><div class="line">import javax.servlet.http.HttpServletResponse;</div><div class="line"></div><div class="line">import org.apache.poi.hssf.usermodel.HSSFCell;</div><div class="line">import org.apache.poi.hssf.usermodel.HSSFRow;</div><div class="line">import org.apache.poi.hssf.usermodel.HSSFSheet;</div><div class="line">import org.apache.poi.hssf.usermodel.HSSFWorkbook;</div><div class="line">import org.apache.struts2.ServletActionContext;</div><div class="line">import org.json.JSONArray;</div><div class="line">import org.json.JSONException;</div><div class="line">import org.json.JSONObject;</div><div class="line"></div><div class="line">public class toExcel &#123;</div><div class="line">	</div><div class="line">	public String dataList;</div><div class="line">	public String[] excelTitle;</div><div class="line">	public String[] field;</div><div class="line"></div><div class="line">	/*</div><div class="line">	 * createEasyExcel</div><div class="line">	 * 返回 HSSFWorkbook文件</div><div class="line">	 * </div><div class="line">	 */</div><div class="line">	private HSSFWorkbook createEasyExcel() throws JSONException&#123;</div><div class="line">		HSSFWorkbook wb = new HSSFWorkbook();</div><div class="line">		/*</div><div class="line">		 * Apache poi 相关</div><div class="line">		 * </div><div class="line">		 * row 行</div><div class="line">		 * cell 单元格</div><div class="line">		 * </div><div class="line">		 */</div><div class="line">		HSSFSheet sheet = wb.createSheet();</div><div class="line">		HSSFRow row = sheet.createRow(0);</div><div class="line"></div><div class="line">		HSSFCell cell = null;</div><div class="line">		HSSFRow rows = null;</div><div class="line">			</div><div class="line">			</div><div class="line">			</div><div class="line">		for (int i = 0; i &lt; excelTitle.length; i++) &#123;</div><div class="line">			cell = row.createCell(i);</div><div class="line">			cell.setCellValue(excelTitle[i]);</div><div class="line">		&#125;</div><div class="line">				</div><div class="line">		String list = dataList;</div><div class="line">		JSONObject obj = new JSONObject(list);</div><div class="line">		JSONArray obj2 = obj.getJSONArray(&quot;rows&quot;);</div><div class="line">	</div><div class="line">		for (int i = 0; i &lt; obj2.length(); i++) &#123;  </div><div class="line">		    JSONObject temp = new JSONObject(obj2.getString(i));</div><div class="line">	    	rows = sheet.createRow(i+1);</div><div class="line">		    for (int j = 0; j &lt; field.length ; j++) &#123;</div><div class="line">				cell = rows.createCell(j);</div><div class="line">				cell.setCellValue(temp.getString(field[j]));			</div><div class="line">		   &#125;</div><div class="line">					  </div><div class="line">		&#125;</div><div class="line">		return wb;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	public void createExcel() &#123;</div><div class="line">		/*</div><div class="line">		 * response 响应头</div><div class="line">		 * 设置文件名称 result.xls</div><div class="line">		 */</div><div class="line">		HttpServletResponse response = ServletActionContext.getResponse();</div><div class="line">		response.setContentType(&quot;application/octet-stream&quot;);</div><div class="line">		response.setHeader(&quot;Content-Disposition&quot;, &quot;attachment;filename=result.xls&quot;);</div><div class="line">			</div><div class="line">		try &#123;</div><div class="line">			ServletOutputStream out = response.getOutputStream();</div><div class="line">			createEasyExcel().write(out);</div><div class="line">			out.flush();</div><div class="line">			out.close();</div><div class="line">			</div><div class="line">		&#125; catch (Exception e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">	/**</div><div class="line">	 * @author CourageShuo</div><div class="line">	 * @param dataList 数据源-是一个String类型的Json文件</div><div class="line">	 * @param excelTitle 是一个String[]类型，表示excel表头</div><div class="line">	 */</div><div class="line">	public toExcel(String dataList,String[] excelTitle)&#123;				</div><div class="line">		/*</div><div class="line">		 * response 响应头</div><div class="line">		 * 设置文件名称 result.xml</div><div class="line">		 */</div><div class="line">		this.dataList = dataList;</div><div class="line">		this.excelTitle = excelTitle;</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	/**</div><div class="line">	 * @author CourageShuo</div><div class="line">	 * @param dataList 数据源-是一个String类型的Json文件</div><div class="line">	 * @param excelTitle 是一个String[]类型，表示excel表头</div><div class="line">	 * @param field dataList中的field Json文件中的Key值 一定保持和excelTitle中的名字“对应”</div><div class="line">	 */</div><div class="line">	public toExcel(String dataList,String[] excelTitle,String[] field) &#123;</div><div class="line">		this.dataList = dataList;</div><div class="line">		this.excelTitle = excelTitle;</div><div class="line">		this.field = field;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这里我做了一个简单的封装，主要参数就是</p>
-<ul>
-<li>数据源-是一个String类型的Json文件</li>
-<li>是一个String[]类型，表示excel表头</li>
-<li>dataList中的field Json文件中的Key值 一定保持和excelTitle中的名字“对应”</li>
-</ul>
-
-          
+          <p>作为一个使用Python-flask转JavaWeb的菜鸡来说刚开始各种框架的配置当然是感到各种不爽。还在迷茫。<br>还是说说最近接触项目的小功能吧。</p>
+<h3 id="使用Apache-Poi包实现导出Excel"><a href="#使用Apache-Poi包实现导出Excel" class="headerlink" title="使用Apache Poi包实现导出Excel"></a>使用Apache Poi包实现导出Excel</h3><p>说一下项目背景吧：把界面查询到的结果数据导出到Excel并实现下载。初略看了一下业务代码的实现，就是简单的数据库查询包装成Json格式的字符串，返回到前端。<br>这里的坑就比较大了，说一下我踩坑的经历吧。<br>刚开始我以为会很简单，在前端界面得到ClassName和对应的MethodName。正好Java有个映射，我们可以通过类名和方法名就可以直接调用查询数据库的方法。但是我不知道为什么，在js中找不到ClassName和MethodName，没有办法。这里有一点要注意的是，我们即使得到了这两个方法也要注意数据库查询的分页问题。没办法我没有得到，所以我自己重写了查询数据库的无分页方法。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/22/javaWeb-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -651,64 +636,19 @@
 
       
         
-          
-            <h3 id="Servlet-中的初始化参数"><a href="#Servlet-中的初始化参数" class="headerlink" title="Servlet 中的初始化参数"></a>Servlet 中的初始化参数</h3><p>在web.xml中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;init-param&gt;</div><div class="line">	&lt;param-name&gt;admin-Email&lt;/param-name&gt;</div><div class="line">	&lt;param-value&gt;***@***.com&lt;/param-value&gt;</div><div class="line">&lt;/init-param&gt;</div></pre></td></tr></table></figure></p>
+          <h3 id="Servlet-中的初始化参数"><a href="#Servlet-中的初始化参数" class="headerlink" title="Servlet 中的初始化参数"></a>Servlet 中的初始化参数</h3><p>在web.xml中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;init-param&gt;</div><div class="line">	&lt;param-name&gt;admin-Email&lt;/param-name&gt;</div><div class="line">	&lt;param-value&gt;***@***.com&lt;/param-value&gt;</div><div class="line">&lt;/init-param&gt;</div></pre></td></tr></table></figure></p>
 <p>在servlet代码中<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getServletConfig().getInitParameter(<span class="string">"admin-Email"</span>)</div></pre></td></tr></table></figure></p>
 <p><strong>在servlet初始化之前不能使用servlet初始化参数</strong></p>
 <p><strong>servlet初始化参数只能读一次就是在容器初始化servlet的时候</strong></p>
 <p>当我们创建了Servlet的初始化参数的时候我们只能在其中一个Servlet中使用它，但是我们有时候总是需要在全局中使用。</p>
-<h4 id="上下文初始对象"><a href="#上下文初始对象" class="headerlink" title="上下文初始对象"></a>上下文初始对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;context-param&gt;</div><div class="line">&lt;param-name&gt;admin-Email&lt;/param-name&gt;</div><div class="line">&lt;param-value&gt;***@***.com&lt;/param-value&gt;</div><div class="line">&lt;/context-param&gt;</div></pre></td></tr></table></figure>
-<p><strong><context-param>是针对整个应用的，所以要放在<web-app>中，在<servlet>外</servlet></web-app></context-param></strong><br>在servlet代码中<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getServletContext().getInitParameter(<span class="string">"admin-Email"</span>);</div></pre></td></tr></table></figure></p>
-<h3 id="Servlet中ServletConfig和ServletContext之间的区别"><a href="#Servlet中ServletConfig和ServletContext之间的区别" class="headerlink" title="Servlet中ServletConfig和ServletContext之间的区别"></a>Servlet中ServletConfig和ServletContext之间的区别</h3><ul>
-<li>语法：ServletConfig书写在每个特定的<sevlet>中，ServletContext书写在<web-app>中但不在<servlet>中</servlet></web-app></sevlet></li>
-<li>整个Web应用只有一个ServletContext，并且整个Web应用都能访问他</li>
-</ul>
-<h3 id="ServletContext的其他使用"><a href="#ServletContext的其他使用" class="headerlink" title="ServletContext的其他使用"></a>ServletContext的其他使用</h3><p>ServletContext 是JSP或Servlet与容器以及其他Web应用其他部分的一个连接。</p>
-<h4 id="一些ServletContext中的方法"><a href="#一些ServletContext中的方法" class="headerlink" title="一些ServletContext中的方法"></a>一些ServletContext中的方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;interface&gt;</div><div class="line">ServletContext</div><div class="line">--------------</div><div class="line">得到初始化参数以及获取/设置属性</div><div class="line">getInitParameter(String)</div><div class="line">getInitParameterNames()</div><div class="line">getAttribute(String)</div><div class="line">getAttributeNames()</div><div class="line">setAttribute(String,Object)</div><div class="line">removeAttribute(String)</div><div class="line">--------------</div><div class="line">得到有关服务器/容器的信息</div><div class="line">getMajorVersion()</div><div class="line">getServerInfo</div><div class="line">--------------</div><div class="line">getRealPath(String)</div><div class="line">getResourceAsStream(String)</div><div class="line">getRequestDispatcher(String)</div><div class="line">--------------</div><div class="line">log(String)</div></pre></td></tr></table></figure>
-<h3 id="使用另外两种方式得到ServletContext"><a href="#使用另外两种方式得到ServletContext" class="headerlink" title="使用另外两种方式得到ServletContext"></a>使用另外两种方式得到ServletContext</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">getServerConfig().getServletContext().getInitParameter()</div><div class="line">this.getServletContext().getInitParameter()</div></pre></td></tr></table></figure>
-<h3 id="上下文监听器ServletContextListener"><a href="#上下文监听器ServletContextListener" class="headerlink" title="上下文监听器ServletContextListener"></a>上下文监听器ServletContextListener</h3><p>创建单独类，而不是JSP或Servlet，他能监听ServletContext一生中两个关键时间:初始化和撤销<br>这个类需要实现javax.servlet.ServletContextListener<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;interface&gt;</div><div class="line">ServletContextListener</div><div class="line">---------------------</div><div class="line">contexInitalized(ServletContextEvent)</div><div class="line">contexDestroyed(ServletContextEvent)</div></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> javax.servlet.*;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyServletContextListener</span> <span class="keyword">implements</span> <span class="title">ServletContextListener</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextInitalized</span><span class="params">(ServletContextEvent enevt)</span></span>&#123;</div><div class="line">		<span class="comment">//code</span></div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextDestroyed</span><span class="params">(ServletContextEvent enevt)</span></span>&#123;</div><div class="line">		<span class="comment">//code</span></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="在web-xml中部署"><a href="#在web-xml中部署" class="headerlink" title="在web.xml中部署"></a>在web.xml中部署<listener></listener></h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">listener</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">listener-class</span>&gt;</span></div><div class="line">		com.shuo.MyServletContextListener</div><div class="line">	<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">listener</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="上下文监听器实例"><a href="#上下文监听器实例" class="headerlink" title="上下文监听器实例"></a>上下文监听器实例</h3><p>MyServletContextListener.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> javax.servlet.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyServletContextListener</span> <span class="keyword">implements</span> <span class="title">ServletContextListener</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextInitialized</span><span class="params">(ServletContextEvent enevt)</span></span>&#123;</div><div class="line">		ServletContext sc = enevt.getServletContext();</div><div class="line"></div><div class="line">		String dogBreed = sc.getInitParameter(<span class="string">"breed"</span>);</div><div class="line">		Dog d = <span class="keyword">new</span> Dog(dogBreed);</div><div class="line"></div><div class="line">		sc.setAttribute(<span class="string">"dog"</span>,d);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">contextDestroyed</span><span class="params">(ServletContextEvent enevt)</span></span>&#123;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>Dog.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span></span>&#123;</div><div class="line">	<span class="keyword">private</span> String breed;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">(String breed)</span></span>&#123;</div><div class="line">		<span class="keyword">this</span>.breed = breed;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getBreed</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> breed;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>ListenerTester.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> javax.servlet.*;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.*;</div><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"><span class="keyword">import</span> com.example.Dog;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListenerTester</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span></span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request ,HttpServletResponse response)</span></span></div><div class="line"><span class="function">						<span class="keyword">throws</span> IOException ,ServletException</span>&#123;</div><div class="line">							response.setContentType(<span class="string">"text/html"</span>);</div><div class="line">							PrintWriter out = response.getWriter();</div><div class="line"></div><div class="line">							out.println(<span class="string">"test contextListener &lt;br&gt;"</span>);</div><div class="line">							out.println(<span class="string">"&lt;br&gt;"</span>);</div><div class="line">							out.println(<span class="string">"test contextListener &lt;br&gt;"</span>);</div><div class="line"></div><div class="line"></div><div class="line">							Dog dog1 = (Dog) getServletContext().getAttribute(<span class="string">"dog"</span>);</div><div class="line"></div><div class="line">							out.println(<span class="string">"dlsdjl"</span>);</div><div class="line">							String B = dog1.getBreed();</div><div class="line">							System.out.print(B);</div><div class="line">							out.println(<span class="string">"dd"</span>+B);</div><div class="line">							out.println(<span class="string">"dog breed is"</span> + dog1.getBreed());</div><div class="line">						&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>web.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">web-app</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">servlet</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>ListenerTester<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.example.ListenerTester<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>ListenerTester<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/listenertester.do<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>breed<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>Great Dane<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">listener</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">listener-class</span>&gt;</span></div><div class="line">			com.example.MyServletContextListener</div><div class="line">		<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">listener</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h3 id="常见的监听者"><a href="#常见的监听者" class="headerlink" title="常见的监听者"></a>常见的监听者</h3><table>
-<thead>
-<tr>
-<th>场景</th>
-<th>监听者接口</th>
-<th>事件类型</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>你想知道一个Web应用上下文<br>是否被增加删除或替换了一<br>个属性</td>
-<td>javax.servlet.ServletContextAttributeListener<br>attributeAdder<br>attributeRemoved<br>attributeReplaced</td>
-<td>ServletContextAttributeEvent</td>
-</tr>
-<tr>
-<td>你想知道有多少个并发用户。</td>
-<td>javax.servlet.HttpSessionListener<br>sessionCreated<br>sessionDestoryed</td>
-<td>HttpSessionEvent</td>
-</tr>
-<tr>
-<td>每次请求来到时你都想知道。</td>
-<td>javax.servlet.ServletRequestListener<br>requestInitialied<br>requestDestoryed</td>
-<td>ServletRequestEvent</td>
-</tr>
-<tr>
-<td>增加，删除，替换一个请求属性时</td>
-<td>javax.servlet.ServletRequestAttributeListener<br>attributeAdder<br>attributeRemoved<br>attributeReplaced</td>
-<td>ServletRequestAttributeEvent</td>
-</tr>
-</tbody>
-</table>
-<h3 id="关于Windows-Git-Bash-javac-乱码"><a href="#关于Windows-Git-Bash-javac-乱码" class="headerlink" title="关于Windows Git Bash javac 乱码"></a>关于Windows Git Bash javac 乱码</h3><p>在%git/etc/bash.bashrc最后输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alias javac=&apos;javac -J-Dfile.encoding=UTF-8&apos;</div><div class="line">alias java=&apos;java -Dfile.encoding=UTF-8&apos;</div></pre></td></tr></table></figure></p>
-<h3 id="Servlet编写过滤器"><a href="#Servlet编写过滤器" class="headerlink" title="Servlet编写过滤器"></a>Servlet编写过滤器</h3><p>Servlet过滤器可以动态的拦截请求和响应，以变换或使用    包含在请求或相应中的信息。</p>
-<h3 id="Struts-xml文件的配置"><a href="#Struts-xml文件的配置" class="headerlink" title="Struts.xml文件的配置"></a>Struts.xml文件的配置</h3><p>主要属性的说明：</p>
-
-          
+<h4 id="上下文初始对象"><a href="#上下文初始对象" class="headerlink" title="上下文初始对象"></a>上下文初始对象</h4>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/15/java-other1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -847,22 +787,16 @@
 
       
         
-          
-            <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/8.jpg" alt="8"></p>
+          <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/8.jpg" alt="8"></p>
 <p>I/O问题可以说是当今Web应用中所面临的重要问题之一，因为在当今这个海量数据的时代，这些数据都是随处流动的。这些流动就都涉及了I/O问题，可以说很多Web应用系统的瓶颈都是I/O瓶颈。</p>
-<h3 id="Java的I-O类库的基本架构"><a href="#Java的I-O类库的基本架构" class="headerlink" title="Java的I/O类库的基本架构"></a>Java的I/O类库的基本架构</h3><p>Java的I/O操作类在包java.io下，大概有近80个类。大概分为四组:</p>
-<ul>
-<li>基于字节操作的I/O接口: InputStream和OutputStream.</li>
-<li>基于字符操作的I/O接口: Writet和Reader.</li>
-<li>基于磁盘操作的I/O接口: File.</li>
-<li>基于网络操作的I/O接口: Socket.<br>前两种主要是传输数据的格式，后两者主要是传输数据的方式，但是Socket并不在java.io的包下。I/O的核心问题要么是数据格式影响力了I/O操作，要么是传输方式影响了I/O操作。是一种将什么样的数据写入到什么地方去的问题。</li>
-</ul>
-<h2 id="基于字节的I-O操作接口"><a href="#基于字节的I-O操作接口" class="headerlink" title="基于字节的I/O操作接口"></a>基于字节的I/O操作接口</h2><ul>
-<li>InputStream</li>
-<li>OutputStream</li>
-</ul>
-
-          
+<h3 id="Java的I-O类库的基本架构"><a href="#Java的I-O类库的基本架构" class="headerlink" title="Java的I/O类库的基本架构"></a>Java的I/O类库的基本架构</h3><p>Java的I/O操作类在包java.io下，大概有近80个类。大概分为四组:<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/14/javaWeb-1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1001,16 +935,14 @@
 
       
         
-          
-            <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/10.jpg" alt="10"><br>当我们的网站建设的比较漂亮的时候我们总是希望它能够更加的完善，但是当我们输入了一个不正确的路由地址的时候那么会显示一个404错误码，现在的404界面实在是太简陋了，我们希望它能够向我们user界面一样美观大方。<br>向常规路由一样。Flask允许程序使用基于模板的自定义错误页面。最常见的错误码有404和500。<br>首先我们在hello.py中添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@app.route(404)</div><div class="line">def page_not_found(e):</div><div class="line">    return render_template(&apos;404.html&apos;),404</div><div class="line"></div><div class="line">@app.route(500)</div><div class="line">def internal_server_error(500):</div><div class="line">    return render_template(&apos;500.html&apos;),500</div></pre></td></tr></table></figure></p>
-<p>和视图函数一样，错误处理函数也会返回响应。他们还返回与该错误对应的数字状态码。<br>错误处理程序中引用的模板也需要编写，这些模板应该鹤常规页面使用相同的布局，因此页有一个导航条和显示错误信息的页面头部。<br>当然了我们编写这些模板为了能够让他们实现使用相同的布局，我们最先想到的就是把他们复制一份。但是我们通常还是不会那样去做。</p>
-<h3 id="Jinja2中的继承"><a href="#Jinja2中的继承" class="headerlink" title="Jinja2中的继承"></a>Jinja2中的继承</h3><p>我们在之前学习的Jinja2的时候我们说过继承。Jinja2中的继承机制可以帮助我们解决这类问题，Flask-BootStrap提供了一个具有页面基本布局的基类，同样程序也可以定义一个具有更完整页面布局的基类。我们把上一篇中的templates/user.html修改为templates/base.html,然后我们作出一些修改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">&#123;% extends &quot;bootstrap/base.html&quot; %&#125;</div><div class="line">&#123;% block title %&#125;Flasky&#123;% endblock %&#125;</div><div class="line">&#123;% block navbar %&#125;</div><div class="line">&lt;div class=&quot;navbar navbar-inverse&quot; role=&quot;navigation&quot;&gt;</div><div class="line">    &lt;div class=&quot;container&quot;&gt;</div><div class="line">        &lt;div class=&quot;navbar-header&quot;&gt;</div><div class="line">            &lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; </div><div class="line">             data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-collapse&quot;&gt;</div><div class="line">                &lt;span class=&quot;sr-only&quot;&gt;Toggle navigation&lt;/span&gt;</div><div class="line">                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;</div><div class="line">                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;</div><div class="line">                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;</div><div class="line">            &lt;/button&gt;</div><div class="line">            &lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;Flasky&lt;/a&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;navbar-collapse collapse&quot;&gt;</div><div class="line">            &lt;ul class=&quot;nav navbar-nav&quot;&gt;</div><div class="line">                &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</div><div class="line">            &lt;/ul&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&#123;% endblock %&#125;</div><div class="line">&#123;% block content %&#125;</div><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">   &#123;% block page-content %&#125;</div><div class="line">   &#123;% endblock %&#125;</div><div class="line">&lt;/div&gt;</div><div class="line">&#123;% endblock %&#125;</div></pre></td></tr></table></figure>
-<p>这个模板中的content块中只有一个<div>容器，其中包含了一个名为page-content的新的空块，块中的内容由衍生的模板定义。<br>现在我们使用的模板继承自这个模板，而不是继承Flask-BootStrap的基模板。通过继承templates/base.html我们可以很容易的编写自定义的404错误页面。<br>templates/404.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;% extends &quot;base.html&quot; %&#125;</div><div class="line">&#123;% block title %&#125;Flasky - Page Not Found &#123;% endblock %&#125;</div><div class="line"></div><div class="line">&#123;% block page-content %&#125;</div><div class="line">&lt;div class=&quot;page-header&quot;&gt;</div><div class="line">    &lt;h1&gt;Not Found&lt;/h1&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&#123;% endblock %&#125;</div></pre></td></tr></table></figure></div></p>
-<p>user.html现在也可以通过继承base.html这个模板来简化内容。<br>./templates/user.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;% extends &quot;base.html&quot; %&#125;</div><div class="line">&#123;% block title %&#125;Flasky&#123;% endblock %&#125;</div><div class="line"></div><div class="line">&#123;% block page-content %&#125;</div><div class="line">&lt;div class=&quot;page-header&quot;&gt;</div><div class="line">&lt;h1&gt;Hello,&#123;&#123; name &#125;&#125;!&lt;/h1&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&#123;% endblock %&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>任何具有多个路由的程序都需要可以链接不同页面的链接。<br>在模板中编写简单路由的URL链接不难。但对于包含可变部分的动态路由就比较困难。而且直接编写URL会对代码中定义的路由产生不必要的依赖关系，如果重新定义路由，模板中的链接可能会失效。<br>针对这样的问题，Flask提供了url_for()辅助函数。它可以<strong>使用程序URL映射中保存的信息生成URL。</strong><br>url_for()函数最简单的方法就是以视图函数名(或者app.add_url_route()定义路由是使用的端点名) 作为参数，返回对应的URL。例如在当前的hello.py程序中调用url_for(‘index’)得到的结果是//调用url_for(‘index’,_external=True)返回的则是绝对地址。例如:<a href="http://localhost:5000/" target="_blank" rel="external">http://localhost:5000/</a><br>使用url_for()生成动态地址时，将动态部分作为关键字参数传入。例如url_for(‘user’,name=’name’,_external=True)的返回结果是<a href="http://localhost:5000/user/name。" target="_blank" rel="external">http://localhost:5000/user/name。</a><br>传入url_for()的参数不仅限于动态路由中的参数。函数能将任何额外参数添加到查询字符串中。例如url_for(‘index’,page=2)返回的结果是?/page=2。</p>
-
-          
+          <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/10.jpg" alt="10"><br>当我们的网站建设的比较漂亮的时候我们总是希望它能够更加的完善，但是当我们输入了一个不正确的路由地址的时候那么会显示一个404错误码，现在的404界面实在是太简陋了，我们希望它能够向我们user界面一样美观大方。<br>向常规路由一样。Flask允许程序使用基于模板的自定义错误页面。最常见的错误码有404和500。<br>首先我们在hello.py中添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@app.route(404)</div><div class="line">def page_not_found(e):</div><div class="line">    return render_template(&apos;404.html&apos;),404</div><div class="line"></div><div class="line">@app.route(500)</div><div class="line">def internal_server_error(500):</div><div class="line">    return render_template(&apos;500.html&apos;),500</div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/09/flaskStudy-7/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1149,72 +1081,15 @@
 
       
         
-          
-            <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/9.jpg" alt="8"><br>在前面我们学习了Jinja2模板和Flask的render-template模板引擎，当我们想要做一个比较漂亮美观的网站的时候，我们总是先想到有没有比较好看的框架。这一篇我们了解以下Flask的Bootstrap</p>
-<h3 id="使用Flask-Bootstrap"><a href="#使用Flask-Bootstrap" class="headerlink" title="使用Flask-Bootstrap"></a>使用Flask-Bootstrap</h3><p><a href="http://getbootstrap.com/" target="_blank" rel="external">Bootstrap</a>是Twitter开发的一个开源框架，它提供的用户界面组件可以创建整洁且具有吸引力的网页，而且这些网页还能兼容所有现代Web浏览器。<br>要想在程序中集成Bootstrap，显然要对模板作出必要的改动。不过，Flask有一个Flask-Bootstrap的拓展，简化集成的过程<br><code>(env)$ pip install flask-bootstrap</code><br>和Flask-Script一样也是从flask.ext命名空间中导入。<br>hello.py:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">from flask import Flask, render_template</div><div class="line">from flask.ext.script import Manager</div><div class="line">from flask.ext.bootstrap import BootStrap</div><div class="line"></div><div class="line">app = Flask(__name__)</div><div class="line">manager = Manager(app)</div><div class="line">bootstrap = BootStrap(app)</div><div class="line"></div><div class="line">@app.route(&apos;/&apos;)</div><div class="line">def index():</div><div class="line">    return render_template(&apos;index.html&apos;)</div><div class="line">    </div><div class="line">@app.route(&apos;/user/&lt;name&gt;&apos;)</div><div class="line">def user(name):</div><div class="line">    return render_template(&apos;user.html&apos;.name=name)</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    manager.run()</div></pre></td></tr></table></figure></p>
-<p>./templates/user.html:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&#123;% extends &quot;bootstrap/base.html&quot; %&#125;</div><div class="line"></div><div class="line">&#123;% block title %&#125;Flasky&#123;% endblock %&#125;</div><div class="line"></div><div class="line">&#123;% block navbar %&#125;</div><div class="line">&lt;div class=&quot;navbar navbar-inverse&quot; role=&quot;navigation&quot;&gt;</div><div class="line">    &lt;div class=&quot;container&quot;&gt;</div><div class="line">        &lt;div class=&quot;navbar-header&quot;&gt;</div><div class="line">            &lt;button type=&quot;button&quot; class=&quot;navbar-toggle&quot; </div><div class="line">             data-toggle=&quot;collapse&quot; data-target=&quot;.navbar-collapse&quot;&gt;</div><div class="line">                &lt;span class=&quot;sr-only&quot;&gt;Toggle navigation&lt;/span&gt;</div><div class="line">                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;</div><div class="line">                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;</div><div class="line">                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;</div><div class="line">            &lt;/button&gt;</div><div class="line">            &lt;a class=&quot;navbar-brand&quot; href=&quot;/&quot;&gt;Flasky&lt;/a&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;navbar-collapse collapse&quot;&gt;</div><div class="line">            &lt;ul class=&quot;nav navbar-nav&quot;&gt;</div><div class="line">                &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;</div><div class="line">            &lt;/ul&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&#123;% endblock %&#125;</div><div class="line"></div><div class="line">&#123;% block content %&#125;</div><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">   &lt;div class=&quot;page-header&quot;&gt;</div><div class="line">       &lt;h1&gt;hello,&#123;&#123; name &#125;&#125;!&lt;/h1&gt;</div><div class="line">   &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&#123;% endblock %&#125;</div></pre></td></tr></table></figure></p>
-<p>Jinja2中的extends指令从Flask-Bootstrap中导入bootstrap/base.html,从而实现模板继承。Flask-Bootstrap中的基类模板提供了一个网页框架，引入了Bootstrap中的所有CSS鹤JavaScript文件。基类中定义了可以在衍生模板中使用的重定义的块。block和endblock指令定义的块中的内容可以添加到基模板中/<br>我们在user.html模板中定义了三个块，分别名为title，navbar和content。这些块都是基模板提供的，可以在衍生模板中重新定义。</p>
-<h4 id="Flask-Bootstrap基模板中定义的块"><a href="#Flask-Bootstrap基模板中定义的块" class="headerlink" title="Flask-Bootstrap基模板中定义的块"></a>Flask-Bootstrap基模板中定义的块</h4><table>
-<thead>
-<tr>
-<th>块名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>doc</td>
-<td>整个HTML文档</td>
-</tr>
-<tr>
-<td>html_attribs</td>
-<td><html>标签的属性</html></td>
-</tr>
-<tr>
-<td>html</td>
-<td><html>标签的内容</html></td>
-</tr>
-<tr>
-<td>head</td>
-<td><head>标签的内容</head></td>
-</tr>
-<tr>
-<td>title</td>
-<td><title>标签的内容</title></td>
-</tr>
-<tr>
-<td>metas</td>
-<td>一组<meta>标签</td>
-</tr>
-<tr>
-<td>styles</td>
-<td>层叠样式表定义</td>
-</tr>
-<tr>
-<td>body_attribs</td>
-<td><body>标签的属性</body></td>
-</tr>
-<tr>
-<td>body</td>
-<td><body>标签中的内容</body></td>
-</tr>
-<tr>
-<td>navbar</td>
-<td>用户定义的导航条</td>
-</tr>
-<tr>
-<td>content</td>
-<td>用户定义的页面内容</td>
-</tr>
-<tr>
-<td>scripts</td>
-<td>文档底部的JavaScipt声明</td>
-</tr>
-</tbody>
-</table>
-<p>表中的很多块都是Flask-Bootstrap自用的，如果直接重定义可能会导致一些问题。Bootstrap所需的文件在styles和scripts块中声明。如过程序需要向已经有内容的块中添加新内容，必须使用Jinja2提供的super()函数。例如，在衍生模板中添加新的JavaScript文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;% block script %&#125;</div><div class="line">&#123;&#123; super() &#125;&#125;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;my-script.js&quot;&gt;&lt;/script&gt;</div><div class="line">&#123;% endblock %&#125;</div></pre></td></tr></table></figure></p>
-
-          
+          <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/9.jpg" alt="8"><br>在前面我们学习了Jinja2模板和Flask的render-template模板引擎，当我们想要做一个比较漂亮美观的网站的时候，我们总是先想到有没有比较好看的框架。这一篇我们了解以下Flask的Bootstrap</p>
+<h3 id="使用Flask-Bootstrap"><a href="#使用Flask-Bootstrap" class="headerlink" title="使用Flask-Bootstrap"></a>使用Flask-Bootstrap</h3><p><a href="http://getbootstrap.com/" target="_blank" rel="external">Bootstrap</a>是Twitter开发的一个开源框架，它提供的用户界面组件可以创建整洁且具有吸引力的网页，而且这些网页还能兼容所有现代Web浏览器。<br>要想在程序中集成Bootstrap，显然要对模板作出必要的改动。不过，Flask有一个Flask-Bootstrap的拓展，简化集成的过程<br><code>(env)$ pip install flask-bootstrap</code><br>和Flask-Script一样也是从flask.ext命名空间中导入。<br>hello.py:<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/05/flaskStudy-6/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1353,55 +1228,16 @@
 
       
         
-          
-            <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/8.jpg" alt="8"><br>我记得在最早的一篇文章中我们说过Flask主要有两个依赖，这一篇文章我为大家介绍以下Flask的第二个依赖，<strong>模板</strong><br>要想开发出易于维护的程序，关键在于编写形式简洁且结构良好，当我们开发比较大的项目的时候，我们往往会使用到使用程序中的真实值去替换模板中的变量，最终得到响应字符串，这一过程我们称作渲染。</p>
+          <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/8.jpg" alt="8"><br>我记得在最早的一篇文章中我们说过Flask主要有两个依赖，这一篇文章我为大家介绍以下Flask的第二个依赖，<strong>模板</strong><br>要想开发出易于维护的程序，关键在于编写形式简洁且结构良好，当我们开发比较大的项目的时候，我们往往会使用到使用程序中的真实值去替换模板中的变量，最终得到响应字符串，这一过程我们称作渲染。</p>
 <h3 id="Jinja2模块引擎"><a href="#Jinja2模块引擎" class="headerlink" title="Jinja2模块引擎"></a>Jinja2模块引擎</h3><p>形式最简单的Jinja2模板就是一个包含响应文本的文件。</p>
-<h4 id="简单的例子"><a href="#简单的例子" class="headerlink" title="简单的例子"></a>简单的例子</h4><p>我们新建两个模块，样式是这样的：./templates/index.html ./templates/user.html<br>./templates/index.html<br><code>&lt;h1&gt;Hello World!&lt;/h1&gt;</code><br>./templates/user.html<br><code>&lt;h1&gt;Hello &lt;/h1&gt;</code><br>再新建一个渲染模块，格式是这样的: ./hello.py<br>./hello.py</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">from flask import Flask, render_template</div><div class="line">from flask.ext.script import Manager </div><div class="line">app = Flask(__name__)</div><div class="line">manager = Manager(app)</div><div class="line">@app.route(&apos;/&apos;)</div><div class="line">def index():</div><div class="line">    return render_template(&apos;index.html&apos;)</div><div class="line">@app.route(&apos;/user/&lt;name&gt;&apos;)</div><div class="line">def user(name):</div><div class="line">    return render_template(&apos;user.html&apos;,name=name)</div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    manager.run()</div></pre></td></tr></table></figure>
-<p>Flask 程序提供了render_template函数把Jinja2模板引擎集成到了程序中。render_template函数的第一个参数是模板的文件名，随后的参数都是键值对，表示模板中变量对应的真实值。</p>
-<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>上面例中，在模板user.html中使用结构表示一个变量，它是一种特殊的占位符，告诉模板引擎这个位置的值从渲染模块时使用的数据中获取。<br>Jinja2能识别所有类型的变量，甚至是一些复杂的类型，如列表，字典鹤对象，<br>Jinja2可以使用过滤器修改变量，过滤器名添加在变量名之后，中间使用竖线分割。<br><code>hello,</code></p>
-<table>
-<thead>
-<tr>
-<th>过滤器名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>safe</td>
-<td>渲染值是不转义</td>
-</tr>
-<tr>
-<td>capitalize</td>
-<td>把值的首字母转换成大写，其他字母转换成小写</td>
-</tr>
-<tr>
-<td>lower</td>
-<td>把值转换成小写形式</td>
-</tr>
-<tr>
-<td>upper</td>
-<td>把值转换成大写形式</td>
-</tr>
-<tr>
-<td>title</td>
-<td>把值中的每个单词的首字母都转换成大写</td>
-</tr>
-<tr>
-<td>trim</td>
-<td>把值中的首尾空格去掉</td>
-</tr>
-<tr>
-<td>striptags</td>
-<td>渲染之前把值中的所有HTML标签抖删除</td>
-</tr>
-</tbody>
-</table>
-<h4 id="控制语句"><a href="#控制语句" class="headerlink" title="控制语句"></a>控制语句</h4><p>Jinja2提供了多种控制结构，可以用来改变模板的渲染流程。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&#123;% if user %&#125;</div><div class="line">    hello, &#123;&#123; user &#125;&#125;!</div><div class="line">&#123;% else %&#125;</div><div class="line">    hello,stranger!</div><div class="line">&#123;% endif %&#125;</div><div class="line">----------------------------------------</div><div class="line">&lt;ul&gt;</div><div class="line">&#123;% for comment in comment %&#125;</div><div class="line">	&lt;li&gt;&#123;&#123; comment &#125;&#125;&lt;/li&gt;</div><div class="line">&#123;% endfor %&#125;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line">&#123;% extents &apos;base.html&apos;%&#125;</div></pre></td></tr></table></figure>
-
-          
+<h4 id="简单的例子"><a href="#简单的例子" class="headerlink" title="简单的例子"></a>简单的例子</h4><p>我们新建两个模块，样式是这样的：./templates/index.html ./templates/user.html<br>./templates/index.html<br><code>&lt;h1&gt;Hello World!&lt;/h1&gt;</code><br>./templates/user.html<br><code>&lt;h1&gt;Hello &lt;/h1&gt;</code><br>再新建一个渲染模块，格式是这样的: ./hello.py<br>./hello.py<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/05/flaskStudy-5/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1540,43 +1376,16 @@
 
       
         
-          
-            <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/6.jpg" alt="6"><br>在之前我们介绍Flask的时候就说过Flask是一个非常灵活的框架，而且Flask也是支持好多的拓展。</p>
+          <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/6.jpg" alt="6"><br>在之前我们介绍Flask的时候就说过Flask是一个非常灵活的框架，而且Flask也是支持好多的拓展。</p>
 <h3 id="Flask拓展"><a href="#Flask拓展" class="headerlink" title="Flask拓展"></a>Flask拓展</h3><p>Flask被设计为可拓展形式，故而没有提供一些重要的功能，例如数据库和用户认证，所以开发者可以自由选择最合适的包，或者按照需求自行开发。<br>当然了Flask有好多的拓展，就像<strong>海底之冰山</strong>我一直都是对未知的事物抱有一颗敬畏之心，所以我肯定是不会，而且也不必了解全部的拓展包。我们就只谈一下最常用的一些包。</p>
-<h4 id="Flask-Script支持命令行选项"><a href="#Flask-Script支持命令行选项" class="headerlink" title="Flask-Script支持命令行选项"></a>Flask-Script支持命令行选项</h4><p>当我们使用Flask开发Web服务器的时候会支持很多启动设置选项，但只能在脚本中作为参数传递给app.run()函数，这样的操作是很不方便的，传递设置选项的理想方式就是使用命令行参数。<br>Flask-Script是Flask拓展，为Flask程序添加了一个命令行解析器。Flask-Script自带了一组常用的选项，而且还支持自定义命令。我们使用pip进行安装。</p>
-<p><code>(env)$ pip install flask-script</code></p>
-<pre><code>from flask.ext.script import Manager
-from flask import Flask
-app = Flask(__name__)
-manager = Manager(app)
-@app.route
-def index():
-    return &apos;&lt;h1&gt;Hello World！&lt;/h1&gt;&apos;
-
-if __name__ == &apos;__main__&apos;:
-    manager.run()
-</code></pre><p>上面我们做了一个简单的示例。专门为Flask开发的拓展都暴露在flask.ext命名空间下。Flask-Script输出了一个名为Manager的类，可以从flask.ext.script中引入。<br>当我们启动这个程序的时候就可以解析命令了。</p>
-<pre><code>$python hello.py
-usage: hello.py [-h] {shell,runserver} ...
-
-positional arguments:
-  {shell,runserver}
-    shell             在Flask应用上下文中运行Python Shell
-    runserver         运行Flask开发服务器：app.run()
-
-optional arguments:
-  -h --help            显示帮助信息并退出
-</code></pre><p>shell命令用于在程序上下文中启动Python Shell会话，可以使用Shell维护，调试异常。<br>runserver命令用来启动Web服务器，运行<code>python hello.py runserver</code>将以调试模式启动Web服务器。</p>
-<pre><code>(env)$python hello.py runserver --help 
-usage: hello.py runserver [-h] [-t HOST] [-p PORT] [--threaded]
-                            [--processes PROCESSES] [--passthrough-errors] [-d] [-r]
-</code></pre><p>我们是这样运行上面的程序的</p>
-<pre><code>(env)$ python hello.py runserver --host 0.0.0.0
- * Running on http://0.0.0.0:5000/
- * Restarting with reloader
-</code></pre><p>现在我们我们就可以访问了。关于–host后的参数，这里并不进行详细讲解。</p>
-
-          
+<h4 id="Flask-Script支持命令行选项"><a href="#Flask-Script支持命令行选项" class="headerlink" title="Flask-Script支持命令行选项"></a>Flask-Script支持命令行选项</h4><p>当我们使用Flask开发Web服务器的时候会支持很多启动设置选项，但只能在脚本中作为参数传递给app.run()函数，这样的操作是很不方便的，传递设置选项的理想方式就是使用命令行参数。<br>Flask-Script是Flask拓展，为Flask程序添加了一个命令行解析器。Flask-Script自带了一组常用的选项，而且还支持自定义命令。我们使用pip进行安装。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/05/flaskStudy-4/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1715,8 +1524,7 @@ usage: hello.py runserver [-h] [-t HOST] [-p PORT] [--threaded]
 
       
         
-          
-            <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/7.jpg" alt="5"></p>
+          <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/7.jpg" alt="5"></p>
 <p>前面我们已经练习了一个最简单的Flask程序，下面我们更加深入了解一下Flask的工作方式</p>
 <h3 id="请求上下文"><a href="#请求上下文" class="headerlink" title="请求上下文"></a>请求上下文</h3><p>Flask 从客户端收到请求时，要让视图函数能访问一些对象，这样才能处理请求。<br>要让视图函数能够访问请求对象，一个显而易见的方法就是将其<strong>作为参数传入视图函数</strong>不过这样会导致程序中每个视图函数都增加一个参数<br>为了避免大量可有可无的参数，Flask使用上下文临时吧某些对象变为全局可访问。有了上下文，就可以写出下了视图函数：</p>
 <pre><code>from flask import request
@@ -1725,50 +1533,14 @@ def index():
     user_agent = request.headers.get(&apos;User-Agent&apos;)
     return &apos;&lt;p&gt;Your browser is %s&lt;/p&gt;&apos; % user_agent 
 </code></pre><p>在这段视图函数我们把request当作全局变量来使用。事实上，request不可能是全局变量。在多线程服务器中，多个线程同时处理不同客户端发送的不同请求时，每个线程看到的request必然是不相同的。Flask使用上下文让特定的变量在一个线程中全局可访问，与此同时不干扰其他线程。</p>
-<h4 id="Flask上下文全局变量"><a href="#Flask上下文全局变量" class="headerlink" title="Flask上下文全局变量"></a>Flask上下文全局变量</h4><table>
-<thead>
-<tr>
-<th>变量名</th>
-<th>上下文</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>current_app</td>
-<td>程序上下文</td>
-<td>当前激活程序的程序实例</td>
-</tr>
-<tr>
-<td>g</td>
-<td>程序上下文</td>
-<td>处理请求时用作临时存储数据的对象，每次请求都会重设这个变量</td>
-</tr>
-<tr>
-<td>request</td>
-<td>请求上下文</td>
-<td>请求对象，封装了客户端发出的HTTP请求中的内容</td>
-</tr>
-<tr>
-<td>session</td>
-<td>请求上下文</td>
-<td>用户会话，用于存储请求之间需“记住”的值的词典</td>
-</tr>
-</tbody>
-</table>
-<p>Flask在分发请求之前激活或推送程序和请求上下文，请求处理完成后再将其删除。程序上下文被推送后，就可以在线程中使用<strong>current_app</strong>和<strong>g</strong>变量，类似的，请求上下文被推送后，就可以使用<strong>request</strong>和<strong>session</strong>变量，如果使用这些变量前我们没有激活程序上下文或请求上下文，就会导致错误。如果你不知道为什么这4个上下文变量如此有用，那么不用担心，一步一步，带着疑问，我们一起揭开Flask的神秘面纱。</p>
-<h4 id="Flask中的请求调度"><a href="#Flask中的请求调度" class="headerlink" title="Flask中的请求调度"></a>Flask中的请求调度</h4><p>程序收到客户端的请求时要找到处理该请求的视图函数，为了完成这个任务，Flask会在程序的URL映射中查找请求URL。URL映射是URL和视图函数之间的对应关系。Flask使用app.route修饰器或者非修饰器形式的app.add_url_rule()生成映射。</p>
-<h4 id="Flask中的请求钩子"><a href="#Flask中的请求钩子" class="headerlink" title="Flask中的请求钩子"></a>Flask中的请求钩子</h4><p>有时在处理请求之前或者之后执行代码很有用。我们可能需要创建数据库连接或者认证发起请求的用户。为了避免在每个视图函数中都是重复的代码，Flask提供了注册通用函数的功能，注册的函数可在请求被分发到视图函数之前或者之后调用。<br>请求钩子使用修饰器实现，Flask中有4中钩子</p>
-<ul>
-<li>before_frist_request:注册一个函数，在处理第一个请求之前运行。</li>
-<li>before_request:注册一个函数，在每次请求之前运行</li>
-<li>after_request:注册一个函数，如果没有处理的异常抛出，在每次请求之后运行</li>
-<li>teardown_request:注册一个函数，即使有未处理的异常抛出，也在每次请求之后运行</li>
-</ul>
-<p>在请求钩子函数和视图函数之间共享数据一般使用上下文全局对象g。例如，before_request处理程序可以从数据库加载已经登陆的用户，并将其保存到g.user中随后调用视图函数时在使用g.user获取用户。</p>
-<h4 id="Flask中的响应"><a href="#Flask中的响应" class="headerlink" title="Flask中的响应"></a>Flask中的响应</h4><p>Flask调用视图函数后，会将其返回值作为响应内容。Http响应中一个很重要的部分是<strong>状态码</strong>Flask默认为200.这个代码代表请求已经成功被处理。</p>
-
-          
+<h4 id="Flask上下文全局变量"><a href="#Flask上下文全局变量" class="headerlink" title="Flask上下文全局变量"></a>Flask上下文全局变量</h4>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/04/flaskStudy-3/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1907,38 +1679,17 @@ def index():
 
       
         
-          
-            <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/3.jpg" alt="3"><br>由于我的微信公众号每日仅能更新一篇文章，所以今天先在博客上更新，明天公众号更新今日的文章。</p>
+          <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/3.jpg" alt="3"><br>由于我的微信公众号每日仅能更新一篇文章，所以今天先在博客上更新，明天公众号更新今日的文章。</p>
 <h3 id="一个Flask程序"><a href="#一个Flask程序" class="headerlink" title="一个Flask程序"></a>一个Flask程序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># 程序的初始化</div><div class="line">from flask import Flask</div><div class="line">app = Flask(__name__)</div><div class="line"># 路由和视图函数</div><div class="line">@app.route(&apos;/&apos;)</div><div class="line">def index():</div><div class="line">	return &apos;&lt;h1&gt;hello Worle!&lt;/h1&gt;&apos;</div><div class="line"># 启动服务器</div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">	app.run()</div></pre></td></tr></table></figure>
 <p>这段程序作为Flask最基础的一段程序，我把它分成三个部分，这样会更利于我自己的理解</p>
-<h4 id="程序的初始化"><a href="#程序的初始化" class="headerlink" title="程序的初始化"></a>程序的初始化</h4><p>Flask程序的初始化和大多数Python程序都差不多</p>
-<ul>
-<li><p>导入对应的包</p>
-</li>
-<li><p>Flask类的构造函数只有一个必须指定的参数，即程序<strong>主模块或包的名字</strong>。在大多数程序中，Python的__mane__变量就是所需参数。</p>
-</li>
-</ul>
-<h4 id="路由和视图函数"><a href="#路由和视图函数" class="headerlink" title="路由和视图函数"></a>路由和视图函数</h4><ul>
-<li>在Flask程序中定义路由最简便的方法就是使用实例的修饰器app.route,把修饰的函数注册为路由。</li>
-<li>将index()函数注册为程序根地址的处理程序。<ul>
-<li>像index()这样的函数被成为视图函数。视图函数返回的响应可以包含HTML的简单字符串，也可以是复杂的结构。</li>
-</ul>
-</li>
-</ul>
-<h4 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h4><ul>
-<li>__name__ == ‘__main__‘ 是Python的常见用法，在这里是确保直接执行这个脚本时才启动Web服务</li>
-<li>启动Web程序<ul>
-<li>app.run()函数也可以接受一些参数用于设置Web服务器的操作模式。在开发过程中启用调试模式会带来一些便利。就像例子中可以使用：<blockquote>
-<p>app.run(debug=True)</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="关于路由和视图函数"><a href="#关于路由和视图函数" class="headerlink" title="关于路由和视图函数"></a>关于路由和视图函数</h4><p>当我们访问一个Web网站的时候不会总是在根地址中，这样我们就有了Flask中的route()装饰器把一个函数绑定到对应的URL上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@app.route(/hello)</div><div class="line">def hello():</div><div class="line">    return &apos;Hello!&apos;</div></pre></td></tr></table></figure></p>
-<p>然而你也可以构造特定部分动态的URL：要给URL添加变量可以把这些字段标记为<variable_name><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@app.route(/user/&lt;name&gt;)</div><div class="line">def user(name):</div><div class="line">    return &apos;hello ,%s&apos; % name</div></pre></td></tr></table></figure></variable_name></p>
-
-          
+<h4 id="程序的初始化"><a href="#程序的初始化" class="headerlink" title="程序的初始化"></a>程序的初始化</h4>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/25/flaskStudy-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

@@ -103,7 +103,7 @@
 <meta property="og:description" content="我记得在最早的一篇文章中我们说过Flask主要有两个依赖，这一篇文章我为大家介绍以下Flask的第二个依赖，模板要想开发出易于维护的程序，关键在于编写形式简洁且结构良好，当我们开发比较大的项目的时候，我们往往会使用到使用程序中的真实值去替换模板中的变量，最终得到响应字符串，这一过程我们称作渲染。 Jinja2模块引擎形式最简单的Jinja2模板就是一个包含响应文本的文件。 简单的例子我们新建两个模">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ow2flmior.bkt.clouddn.com/image/blog/8.jpg">
-<meta property="og:updated_time" content="2017-11-14T02:52:20.385Z">
+<meta property="og:updated_time" content="2017-12-18T02:47:36.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flask 学习笔记（五）">
 <meta name="twitter:description" content="我记得在最早的一篇文章中我们说过Flask主要有两个依赖，这一篇文章我为大家介绍以下Flask的第二个依赖，模板要想开发出易于维护的程序，关键在于编写形式简洁且结构良好，当我们开发比较大的项目的时候，我们往往会使用到使用程序中的真实值去替换模板中的变量，最终得到响应字符串，这一过程我们称作渲染。 Jinja2模块引擎形式最简单的Jinja2模板就是一个包含响应文本的文件。 简单的例子我们新建两个模">
@@ -351,7 +351,7 @@
       
         <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/8.jpg" alt="8"><br>我记得在最早的一篇文章中我们说过Flask主要有两个依赖，这一篇文章我为大家介绍以下Flask的第二个依赖，<strong>模板</strong><br>要想开发出易于维护的程序，关键在于编写形式简洁且结构良好，当我们开发比较大的项目的时候，我们往往会使用到使用程序中的真实值去替换模板中的变量，最终得到响应字符串，这一过程我们称作渲染。</p>
 <h3 id="Jinja2模块引擎"><a href="#Jinja2模块引擎" class="headerlink" title="Jinja2模块引擎"></a>Jinja2模块引擎</h3><p>形式最简单的Jinja2模板就是一个包含响应文本的文件。</p>
-<h4 id="简单的例子"><a href="#简单的例子" class="headerlink" title="简单的例子"></a>简单的例子</h4><p>我们新建两个模块，样式是这样的：./templates/index.html ./templates/user.html<br>./templates/index.html<br><code>&lt;h1&gt;Hello World!&lt;/h1&gt;</code><br>./templates/user.html<br><code>&lt;h1&gt;Hello &lt;/h1&gt;</code><br>再新建一个渲染模块，格式是这样的: ./hello.py<br>./hello.py</p>
+<h4 id="简单的例子"><a href="#简单的例子" class="headerlink" title="简单的例子"></a>简单的例子</h4><p>我们新建两个模块，样式是这样的：./templates/index.html ./templates/user.html<br>./templates/index.html<br><code>&lt;h1&gt;Hello World!&lt;/h1&gt;</code><br>./templates/user.html<br><code>&lt;h1&gt;Hello &lt;/h1&gt;</code><br>再新建一个渲染模块，格式是这样的: ./hello.py<br>./hello.py<br><a id="more"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">from flask import Flask, render_template</div><div class="line">from flask.ext.script import Manager </div><div class="line">app = Flask(__name__)</div><div class="line">manager = Manager(app)</div><div class="line">@app.route(&apos;/&apos;)</div><div class="line">def index():</div><div class="line">    return render_template(&apos;index.html&apos;)</div><div class="line">@app.route(&apos;/user/&lt;name&gt;&apos;)</div><div class="line">def user(name):</div><div class="line">    return render_template(&apos;user.html&apos;,name=name)</div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    manager.run()</div></pre></td></tr></table></figure>
 <p>Flask 程序提供了render_template函数把Jinja2模板引擎集成到了程序中。render_template函数的第一个参数是模板的文件名，随后的参数都是键值对，表示模板中变量对应的真实值。</p>
 <h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>上面例中，在模板user.html中使用结构表示一个变量，它是一种特殊的占位符，告诉模板引擎这个位置的值从渲染模块时使用的数据中获取。<br>Jinja2能识别所有类型的变量，甚至是一些复杂的类型，如列表，字典鹤对象，<br>Jinja2可以使用过滤器修改变量，过滤器名添加在变量名之后，中间使用竖线分割。<br><code>hello,</code></p>

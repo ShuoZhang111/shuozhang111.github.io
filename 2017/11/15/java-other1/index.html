@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="张硕的博客">
 <meta property="og:description" content="Servlet 中的初始化参数在web.xml中1234&amp;lt;init-param&amp;gt;	&amp;lt;param-name&amp;gt;admin-Email&amp;lt;/param-name&amp;gt;	&amp;lt;param-value&amp;gt;***@***.com&amp;lt;/param-value&amp;gt;&amp;lt;/init-param&amp;gt; 在servlet代码中1getServletConfig().get">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-18T02:47:08.397Z">
+<meta property="og:updated_time" content="2017-12-19T06:09:50.313Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java-other1">
 <meta name="twitter:description" content="Servlet 中的初始化参数在web.xml中1234&amp;lt;init-param&amp;gt;	&amp;lt;param-name&amp;gt;admin-Email&amp;lt;/param-name&amp;gt;	&amp;lt;param-value&amp;gt;***@***.com&amp;lt;/param-value&amp;gt;&amp;lt;/init-param&amp;gt; 在servlet代码中1getServletConfig().get">
@@ -348,7 +348,7 @@
 
       
         <h3 id="Servlet-中的初始化参数"><a href="#Servlet-中的初始化参数" class="headerlink" title="Servlet 中的初始化参数"></a>Servlet 中的初始化参数</h3><p>在web.xml中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;init-param&gt;</div><div class="line">	&lt;param-name&gt;admin-Email&lt;/param-name&gt;</div><div class="line">	&lt;param-value&gt;***@***.com&lt;/param-value&gt;</div><div class="line">&lt;/init-param&gt;</div></pre></td></tr></table></figure></p>
-<p>在servlet代码中<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getServletConfig().getInitParameter(<span class="string">"admin-Email"</span>)</div></pre></td></tr></table></figure></p>
+<p>在servlet代码中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getServletConfig().getInitParameter(&quot;admin-Email&quot;)</div></pre></td></tr></table></figure></p>
 <p><strong>在servlet初始化之前不能使用servlet初始化参数</strong></p>
 <p><strong>servlet初始化参数只能读一次就是在容器初始化servlet的时候</strong></p>
 <p>当我们创建了Servlet的初始化参数的时候我们只能在其中一个Servlet中使用它，但是我们有时候总是需要在全局中使用。</p>
@@ -400,6 +400,7 @@
 </tr>
 </tbody>
 </table>
+<p>###　属性和参数的区别<br>| — | 属性 | 参数　|<br>| — | — | —　|<br>| 类型 | 应用/上下文<br>请求<br>会话 | |<br>| 设置方法 | setAttribute(String name,Object value) | |<br>| 返回类型 | Object | |<br>| 获取方法 | getAttribute(String name) | |</p>
 <h3 id="Servlet编写过滤器"><a href="#Servlet编写过滤器" class="headerlink" title="Servlet编写过滤器"></a>Servlet编写过滤器</h3><p>Servlet过滤器可以动态的拦截请求和响应，以变换或使用    包含在请求或相应中的信息。</p>
 <h3 id="Struts-xml文件的配置"><a href="#Struts-xml文件的配置" class="headerlink" title="Struts.xml文件的配置"></a>Struts.xml文件的配置</h3><p>主要属性的说明：</p>
 
@@ -518,7 +519,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -589,7 +590,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

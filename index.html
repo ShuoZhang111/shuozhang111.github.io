@@ -783,7 +783,7 @@
 <h3 id="使用Apache-Poi包实现导出Excel"><a href="#使用Apache-Poi包实现导出Excel" class="headerlink" title="使用Apache Poi包实现导出Excel"></a>使用Apache Poi包实现导出Excel</h3><p>说一下项目背景吧：把界面查询到的结果数据导出到Excel并实现下载。初略看了一下业务代码的实现，就是简单的数据库查询包装成Json格式的字符串，返回到前端。<br>这里的坑就比较大了，说一下我踩坑的经历吧。<br>刚开始我以为会很简单，在前端界面得到ClassName和对应的MethodName。正好Java有个映射，我们可以通过类名和方法名就可以直接调用查询数据库的方法。但是我不知道为什么，在js中找不到ClassName和MethodName，没有办法。这里有一点要注意的是，我们即使得到了这两个方法也要注意数据库查询的分页问题。没办法我没有得到，所以我自己重写了查询数据库的无分页方法。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/11/22/javaWeb-2/#espandi" rel="contents">
+            <a class="btn" href="/2017/11/22/javaWeb-2/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -934,7 +934,7 @@
 <h4 id="上下文初始对象"><a href="#上下文初始对象" class="headerlink" title="上下文初始对象"></a>上下文初始对象</h4>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/11/15/java-other1/#espandi" rel="contents">
+            <a class="btn" href="/2017/11/15/java-other1/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1082,7 +1082,7 @@
 <h3 id="Java的I-O类库的基本架构"><a href="#Java的I-O类库的基本架构" class="headerlink" title="Java的I/O类库的基本架构"></a>Java的I/O类库的基本架构</h3><p>Java的I/O操作类在包java.io下，大概有近80个类。大概分为四组:<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/11/14/javaWeb-1/#espandi" rel="contents">
+            <a class="btn" href="/2017/11/14/javaWeb-1/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1228,7 +1228,7 @@
           <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/10.jpg" alt="10"><br>当我们的网站建设的比较漂亮的时候我们总是希望它能够更加的完善，但是当我们输入了一个不正确的路由地址的时候那么会显示一个404错误码，现在的404界面实在是太简陋了，我们希望它能够向我们user界面一样美观大方。<br>向常规路由一样。Flask允许程序使用基于模板的自定义错误页面。最常见的错误码有404和500。<br>首先我们在hello.py中添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@app.route(404)</div><div class="line">def page_not_found(e):</div><div class="line">    return render_template(&apos;404.html&apos;),404</div><div class="line"></div><div class="line">@app.route(500)</div><div class="line">def internal_server_error(500):</div><div class="line">    return render_template(&apos;500.html&apos;),500</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/10/09/flaskStudy-7/#espandi" rel="contents">
+            <a class="btn" href="/2017/10/09/flaskStudy-7/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1375,7 +1375,7 @@
 <h3 id="使用Flask-Bootstrap"><a href="#使用Flask-Bootstrap" class="headerlink" title="使用Flask-Bootstrap"></a>使用Flask-Bootstrap</h3><p><a href="http://getbootstrap.com/" target="_blank" rel="external">Bootstrap</a>是Twitter开发的一个开源框架，它提供的用户界面组件可以创建整洁且具有吸引力的网页，而且这些网页还能兼容所有现代Web浏览器。<br>要想在程序中集成Bootstrap，显然要对模板作出必要的改动。不过，Flask有一个Flask-Bootstrap的拓展，简化集成的过程<br><code>(env)$ pip install flask-bootstrap</code><br>和Flask-Script一样也是从flask.ext命名空间中导入。<br>hello.py:<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/10/05/flaskStudy-6/#espandi" rel="contents">
+            <a class="btn" href="/2017/10/05/flaskStudy-6/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1523,7 +1523,7 @@
 <h4 id="简单的例子"><a href="#简单的例子" class="headerlink" title="简单的例子"></a>简单的例子</h4><p>我们新建两个模块，样式是这样的：./templates/index.html ./templates/user.html<br>./templates/index.html<br><code>&lt;h1&gt;Hello World!&lt;/h1&gt;</code><br>./templates/user.html<br><code>&lt;h1&gt;Hello &lt;/h1&gt;</code><br>再新建一个渲染模块，格式是这样的: ./hello.py<br>./hello.py<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/10/05/flaskStudy-5/#espandi" rel="contents">
+            <a class="btn" href="/2017/10/05/flaskStudy-5/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1671,7 +1671,7 @@
 <h4 id="Flask-Script支持命令行选项"><a href="#Flask-Script支持命令行选项" class="headerlink" title="Flask-Script支持命令行选项"></a>Flask-Script支持命令行选项</h4><p>当我们使用Flask开发Web服务器的时候会支持很多启动设置选项，但只能在脚本中作为参数传递给app.run()函数，这样的操作是很不方便的，传递设置选项的理想方式就是使用命令行参数。<br>Flask-Script是Flask拓展，为Flask程序添加了一个命令行解析器。Flask-Script自带了一组常用的选项，而且还支持自定义命令。我们使用pip进行安装。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/10/05/flaskStudy-4/#espandi" rel="contents">
+            <a class="btn" href="/2017/10/05/flaskStudy-4/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

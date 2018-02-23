@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="关于Vim大家都知道Vim编辑器被称为神的编辑器它所带来的体验绝对是一般编辑器所不能带来的。说一下我的个人感觉吧，就是你永远都不知道它的所有功能 简单使用Vim有四种模式一般模式：在Linux终端中输入“vim 文件名”就进入了一般模式,但不能输入文字。编辑模式：在一般模式下按i就会进入编辑模式，此时就可以写程式，按Esc可回到一般模式。命令模式：在一般模式下按：就会进入命令模式，左下角会有一个冒">
+<meta name="description" content="Action映射规则：部署Action时 ，actions,action,struts,struts2包会映射为根命名空间。  如果Action类名包含Action后缀，则去掉。(LoginAction -&amp;gt; login.action) 将类名的驼峰写法转成中划线写法(GetBooks -&amp;gt; get-books.action)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vim简单使用(一)">
-<meta property="og:url" content="http://blog.zhangshuo.xin/2017/12/18/vim-1/index.html">
+<meta property="og:title" content="Convention初识">
+<meta property="og:url" content="http://blog.zhangshuo.xin/2018/02/23/javaWeb-3/index.html">
 <meta property="og:site_name" content="Courage Zhang">
-<meta property="og:description" content="关于Vim大家都知道Vim编辑器被称为神的编辑器它所带来的体验绝对是一般编辑器所不能带来的。说一下我的个人感觉吧，就是你永远都不知道它的所有功能 简单使用Vim有四种模式一般模式：在Linux终端中输入“vim 文件名”就进入了一般模式,但不能输入文字。编辑模式：在一般模式下按i就会进入编辑模式，此时就可以写程式，按Esc可回到一般模式。命令模式：在一般模式下按：就会进入命令模式，左下角会有一个冒">
+<meta property="og:description" content="Action映射规则：部署Action时 ，actions,action,struts,struts2包会映射为根命名空间。  如果Action类名包含Action后缀，则去掉。(LoginAction -&amp;gt; login.action) 将类名的驼峰写法转成中划线写法(GetBooks -&amp;gt; get-books.action)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-18T03:10:14.760Z">
+<meta property="og:updated_time" content="2018-02-23T03:19:16.080Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vim简单使用(一)">
-<meta name="twitter:description" content="关于Vim大家都知道Vim编辑器被称为神的编辑器它所带来的体验绝对是一般编辑器所不能带来的。说一下我的个人感觉吧，就是你永远都不知道它的所有功能 简单使用Vim有四种模式一般模式：在Linux终端中输入“vim 文件名”就进入了一般模式,但不能输入文字。编辑模式：在一般模式下按i就会进入编辑模式，此时就可以写程式，按Esc可回到一般模式。命令模式：在一般模式下按：就会进入命令模式，左下角会有一个冒">
+<meta name="twitter:title" content="Convention初识">
+<meta name="twitter:description" content="Action映射规则：部署Action时 ，actions,action,struts,struts2包会映射为根命名空间。  如果Action类名包含Action后缀，则去掉。(LoginAction -&amp;gt; login.action) 将类名的驼峰写法转成中划线写法(GetBooks -&amp;gt; get-books.action)">
 
 
 
@@ -135,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.zhangshuo.xin/2017/12/18/vim-1/"/>
+  <link rel="canonical" href="http://blog.zhangshuo.xin/2018/02/23/javaWeb-3/"/>
 
 
 
 
 
-  <title>Vim简单使用(一) | Courage Zhang</title>
+  <title>Convention初识 | Courage Zhang</title>
   
 
 
@@ -258,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.zhangshuo.xin/2017/12/18/vim-1/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhangshuo.xin/2018/02/23/javaWeb-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="FISH_SHUO">
@@ -275,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Vim简单使用(一)</h1>
+          <h1 class="post-title" itemprop="name headline">Convention初识</h1>
         
 
         <div class="post-meta">
@@ -287,8 +287,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T11:00:40+08:00">
-                2017-12-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-23T11:12:27+08:00">
+                2018-02-23
               </time>
             
 
@@ -310,8 +310,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/others/" itemprop="url" rel="index">
-                    <span itemprop="name">others</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -347,8 +347,11 @@
       
 
       
-        <h3 id="关于Vim"><a href="#关于Vim" class="headerlink" title="关于Vim"></a>关于Vim</h3><p>大家都知道Vim编辑器被称为<strong>神的编辑器</strong>它所带来的体验绝对是一般编辑器所不能带来的。说一下我的个人感觉吧，就是你永远都不知道它的所有功能</p>
-<h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h3><p>Vim有四种模式<br><strong>一般模式</strong>：在Linux终端中输入“vim 文件名”就进入了一般模式,但不能输入文字。<br><strong>编辑模式</strong>：在一般模式下按i就会进入编辑模式，此时就可以写程式，按Esc可回到一般模式。<br><strong>命令模式</strong>：在一般模式下按：就会进入命令模式，左下角会有一个冒号出现，此时可以敲入命令并执行。<br><strong>视图模式</strong>：</p>
+        <h4 id="Action映射规则："><a href="#Action映射规则：" class="headerlink" title="Action映射规则："></a>Action映射规则：</h4><p>部署Action时 ，actions,action,struts,struts2包会映射为根命名空间。</p>
+<ul>
+<li>如果Action类名包含Action后缀，则去掉。(LoginAction -&gt; login.action)</li>
+<li>将类名的驼峰写法转成中划线写法(GetBooks -&gt; get-books.action)</li>
+</ul>
 
       
     </div>
@@ -373,8 +376,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/15/other-1/" rel="next" title="关于Windows Git Bash javac 乱码">
-                <i class="fa fa-chevron-left"></i> 关于Windows Git Bash javac 乱码
+              <a href="/2017/12/18/vim-1/" rel="next" title="Vim简单使用(一)">
+                <i class="fa fa-chevron-left"></i> Vim简单使用(一)
               </a>
             
           </div>
@@ -382,10 +385,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/23/javaWeb-3/" rel="prev" title="Convention初识">
-                Convention初识 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -513,7 +512,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于Vim"><span class="nav-number">1.</span> <span class="nav-text">关于Vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单使用"><span class="nav-number">2.</span> <span class="nav-text">简单使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Action映射规则："><span class="nav-number">1.</span> <span class="nav-text">Action映射规则：</span></a></li></ol></div>
             
 
           </div>

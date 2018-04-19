@@ -97,14 +97,17 @@
 
 
 
+<meta name="description" content="贝济埃曲线贝济埃曲线（EN:Bezier Curve 即贝塞尔曲线）是一些曲线几何的总称。    在本文中主要像大家展示三种Bezier Curve分别是Linear Bazier curves Quadratic Bezier curves Cubic Bezier curves 这三种都是经常使用的三种曲线，分别是一次曲线、二次曲线和三次曲线，当然还有一些更高维度的曲线就省略了，最后我会放几个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="三次BEZIER插值曲线的手写优化">
+<meta property="og:title" content="三次BEZIER插值曲线">
 <meta property="og:url" content="http://blog.zhangshuo.xin/2018/03/17/BEZIER/index.html">
 <meta property="og:site_name" content="Courage Zhang">
+<meta property="og:description" content="贝济埃曲线贝济埃曲线（EN:Bezier Curve 即贝塞尔曲线）是一些曲线几何的总称。    在本文中主要像大家展示三种Bezier Curve分别是Linear Bazier curves Quadratic Bezier curves Cubic Bezier curves 这三种都是经常使用的三种曲线，分别是一次曲线、二次曲线和三次曲线，当然还有一些更高维度的曲线就省略了，最后我会放几个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-27T07:33:16.459Z">
+<meta property="og:updated_time" content="2018-04-19T14:26:09.715Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="三次BEZIER插值曲线的手写优化">
+<meta name="twitter:title" content="三次BEZIER插值曲线">
+<meta name="twitter:description" content="贝济埃曲线贝济埃曲线（EN:Bezier Curve 即贝塞尔曲线）是一些曲线几何的总称。    在本文中主要像大家展示三种Bezier Curve分别是Linear Bazier curves Quadratic Bezier curves Cubic Bezier curves 这三种都是经常使用的三种曲线，分别是一次曲线、二次曲线和三次曲线，当然还有一些更高维度的曲线就省略了，最后我会放几个">
 
 
 
@@ -140,7 +143,7 @@
 
 
 
-  <title>三次BEZIER插值曲线的手写优化 | Courage Zhang</title>
+  <title>三次BEZIER插值曲线 | Courage Zhang</title>
   
 
 
@@ -274,7 +277,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">三次BEZIER插值曲线的手写优化</h1>
+          <h1 class="post-title" itemprop="name headline">三次BEZIER插值曲线</h1>
         
 
         <div class="post-meta">
@@ -346,7 +349,10 @@
       
 
       
-        
+        <h4 id="贝济埃曲线"><a href="#贝济埃曲线" class="headerlink" title="贝济埃曲线"></a>贝济埃曲线</h4><p>贝济埃曲线（EN:Bezier Curve 即贝塞尔曲线）是一些曲线几何的总称。    在本文中主要像大家展示三种Bezier Curve分别是Linear Bazier curves Quadratic Bezier curves Cubic Bezier curves 这三种都是经常使用的三种曲线，分别是一次曲线、二次曲线和三次曲线，当然还有一些更高维度的曲线就省略了，最后我会放几个图片大家自行理解一下。</p>
+<h4 id="Linear-Bazier-curves"><a href="#Linear-Bazier-curves" class="headerlink" title="Linear Bazier curves"></a>Linear Bazier curves</h4><p>一次Bazier Curve 很容易理解，它实际上指的就是一条直线，没有任何弯度，所以使用一次Bazier Curves 进行插值的技术，有被称为Linear Interpolating。线性插值技术使用还是很广泛的，除去动画系统中，在3D图形的一些滤镜处理阶段也有使用，像光栅化阶段也用来对顶点数和纹理数据进行插值计算。<br>Linear Bazier<code>B(t) = p0 + (p1 - p0) * t = (1 - t)p0 + t * p1,t in [0,1]</code><br>给定点p0 p1,而B(t)为此时曲线的状态。此时是直线。</p>
+<h4 id="Quadratic-Bezier-curves"><a href="#Quadratic-Bezier-curves" class="headerlink" title="Quadratic Bezier curves"></a>Quadratic Bezier curves</h4><p>二次Bezier Curves 是由函数B(t)跟踪的路径，给定点p0、p1和p2<br><code>B(t) = (1 - t)[(1 - t) * p0 + t * p1] + t[(1 - t) * p1 + t * p2],t in [0,1]</code><br>这可以解释为分别从p0到p1和p1到p2的线性Bezier Curves上相应点的线性插值重新排列等式得出<br><code>B(t) = (1 - t)^2 * p0 + 2 * t * (1 - t) * p1 + t^2 * p2,t in [0,1]</code></p>
+
       
     </div>
     
@@ -430,8 +436,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -494,6 +509,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#贝济埃曲线"><span class="nav-number">1.</span> <span class="nav-text">贝济埃曲线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linear-Bazier-curves"><span class="nav-number">2.</span> <span class="nav-text">Linear Bazier curves</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Quadratic-Bezier-curves"><span class="nav-number">3.</span> <span class="nav-text">Quadratic Bezier curves</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

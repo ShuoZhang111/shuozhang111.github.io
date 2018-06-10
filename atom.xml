@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.zhangshuo.xin/"/>
-  <updated>2018-06-06T09:16:54.166Z</updated>
+  <updated>2018-06-10T00:08:34.567Z</updated>
   <id>http://blog.zhangshuo.xin/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Eclipse Console不显示</title>
+    <link href="http://blog.zhangshuo.xin/2018/06/09/java-other2/"/>
+    <id>http://blog.zhangshuo.xin/2018/06/09/java-other2/</id>
+    <published>2018-06-09T07:51:15.000Z</published>
+    <updated>2018-06-10T00:08:34.567Z</updated>
+    
+    <content type="html"><![CDATA[<p>在Preferences-&gt;Run/Debug-&gt;Console里面,有两个是关于显示的：</p><ul><li>一个是Show when program writes to standard out(当Console中有值弹出)</li><li>一个是Show when program writes standard error(当Console中有错误是弹出)。</li></ul><p>我们把这两个取消勾选就可以了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在Preferences-&amp;gt;Run/Debug-&amp;gt;Console里面,有两个是关于显示的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一个是Show when program writes to standard out(当Console中有值弹出)&lt;/li&gt;
+&lt;li&gt;一个是S
+      
+    
+    </summary>
+    
+      <category term="others" scheme="http://blog.zhangshuo.xin/categories/others/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>这场战役我可能会输，但我肯定会站起来</title>

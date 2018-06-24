@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.zhangshuo.xin/"/>
-  <updated>2018-06-10T00:08:34.567Z</updated>
+  <updated>2018-06-24T08:23:04.993Z</updated>
   <id>http://blog.zhangshuo.xin/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>写给十年后的你</title>
+    <link href="http://blog.zhangshuo.xin/2018/06/23/other-5/"/>
+    <id>http://blog.zhangshuo.xin/2018/06/23/other-5/</id>
+    <published>2018-06-23T07:31:41.000Z</published>
+    <updated>2018-06-24T08:23:04.993Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/filco.png" alt="filco"></p><h4 id="写给十年后的你"><a href="#写给十年后的你" class="headerlink" title="写给十年后的你"></a>写给十年后的你</h4><p>&emsp;&emsp;孩子，最近爸爸刚刚过完21岁的生日，在这个颇为高兴的日子里，你妈妈送给我了一个让我很是开心的礼物<br>&emsp;&emsp;孩子，爸爸是一名程序员，爸爸很小的时候还曾经幻想过拯救世界，所以爸爸在用自己的双手和妈妈给我买的键盘，慢慢的改变这个世界。这个世界上还有很多城市并不知道互联网是什么东西，也做不好互联网这个东西。爸爸希望通过自己和无数个你的程序员叔叔一起努力，慢慢的改变了人们的生活方式。</p><h5 id="孩子，妈妈爱我所以给我买了这把键盘，爸爸爱妈妈所以用这把键盘养活了咱家。"><a href="#孩子，妈妈爱我所以给我买了这把键盘，爸爸爱妈妈所以用这把键盘养活了咱家。" class="headerlink" title="孩子，妈妈爱我所以给我买了这把键盘，爸爸爱妈妈所以用这把键盘养活了咱家。"></a>孩子，妈妈爱我所以给我买了这把键盘，爸爸爱妈妈所以用这把键盘养活了咱家。</h5>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;http://ow2flmior.bkt.clouddn.com/image/blog/filco.png&quot; alt=&quot;filco&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;写给十年后的你&quot;&gt;&lt;a href=&quot;#写给十年后的你&quot; class=&quot;headerlink&quot; 
+      
+    
+    </summary>
+    
+      <category term="others" scheme="http://blog.zhangshuo.xin/categories/others/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Eclipse Console不显示</title>
@@ -444,29 +468,6 @@ def index():
     
       &lt;p&gt;&lt;img src=&quot;http://ow2flmior.bkt.clouddn.com/image/blog/1.png&quot; alt=&quot;Effort&quot;&gt;&lt;/p&gt;
 &lt;h1 id=&quot;聪明干不过勤奋，勤奋干不过基因。&quot;&gt;&lt;a href=&quot;#聪明干不过勤奋，勤奋干不过基因。&quot; class=&quot;headerlink&quot; title=&quot;聪明干不过勤奋，勤奋干不过基因。&quot;&gt;&lt;/a&gt;聪明干不过勤奋，勤奋干不过基因。&lt;/h1&gt;&lt;h3 id=&quot;如果用数学方式将它排一下的话……&quot;&gt;&lt;a href=&quot;#如果用数学方式将它排一下的话……&quot; class=&quot;headerlink&quot; title=&quot;如果用数学方式将它排一下的话……&quot;&gt;&lt;/a&gt;如果用数学方式将它排一下的话……&lt;/h3&gt;&lt;p&gt;  &lt;em&gt;聪明&amp;lt;勤奋&amp;lt;基因。&lt;/em&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://blog.zhangshuo.xin/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://blog.zhangshuo.xin/2017/09/09/hello-world/"/>
-    <id>http://blog.zhangshuo.xin/2017/09/09/hello-world/</id>
-    <published>2017-09-09T13:43:56.715Z</published>
-    <updated>2017-11-14T02:52:47.903Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
     
     </summary>
     

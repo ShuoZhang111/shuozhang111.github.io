@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.zhangshuo.xin/"/>
-  <updated>2018-06-24T08:23:04.993Z</updated>
+  <updated>2018-08-14T16:03:39.317Z</updated>
   <id>http://blog.zhangshuo.xin/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring-Boot（一）</title>
+    <link href="http://blog.zhangshuo.xin/2018/08/14/javaWeb-4/"/>
+    <id>http://blog.zhangshuo.xin/2018/08/14/javaWeb-4/</id>
+    <published>2018-08-14T14:47:19.000Z</published>
+    <updated>2018-08-14T16:03:39.317Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/beach-dawn-depth-of-field-1139541.png" alt="日落"></p><h5 id="Controller-处理Http请求"><a href="#Controller-处理Http请求" class="headerlink" title="@Controller 处理Http请求"></a>@Controller 处理Http请求</h5><p>@Controller 用来响应页面，@Controller必须结合模板使用</p><h5 id="RestController"><a href="#RestController" class="headerlink" title="@RestController"></a>@RestController</h5><p>Spring4之后新加入的注解，原来返回json需要@ResponseBody和@Controller配合，@RestController是@ResponseBody和@Controlle的组合<br><a id="more"></a></p><h5 id="RequestMapping-配置URL映射"><a href="#RequestMapping-配置URL映射" class="headerlink" title="@RequestMapping 配置URL映射"></a>@RequestMapping 配置URL映射</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/hello"</span>,method = RequestMethod.GET);</div></pre></td></tr></table></figure><p>@RequestMapping 此注解即可作用在控制器的某个方法上，也可以作用在此控制器类上。<br>当控制器在类级别上添加@RequestMapping注解时，这个注解会应用到控制器类的所有处理器方法上。</p><h5 id="启动方式"><a href="#启动方式" class="headerlink" title="启动方式"></a>启动方式</h5><ul><li>在项目目录下运行<code>mvn spring-boot:run</code></li><li>在项目目录下编译一下<code>mvn install</code> 进入 target 目录下<code>java -jar XXX.jar</code></li></ul><h5 id="配置文件-XXX-yml"><a href="#配置文件-XXX-yml" class="headerlink" title="配置文件  XXX.yml"></a>配置文件  XXX.yml</h5><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="attr">server:</span></div><div class="line"><span class="attr">  port:</span> <span class="number">8080</span></div><div class="line"><span class="attr">  context-path:</span> <span class="string">/</span></div><div class="line"><span class="attr">person:</span></div><div class="line"><span class="attr">  age:</span> <span class="number">18</span></div><div class="line"><span class="attr">  name:</span> <span class="string">CZ</span></div></pre></td></tr></table></figure><p>在java文件中使用(一)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Value</span>(<span class="string">"$&#123;person.age&#125;"</span>)</div><div class="line"><span class="keyword">private</span> Integer age;</div></pre></td></tr></table></figure></p><p>在java文件中使用(二)：将配置写入到类里<br>PersonProperties.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"person"</span>)  <span class="comment">//获取前缀是person的配置</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonProperties</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> Name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> age;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(Integer age)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.age = age;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span>  String name;</div><div class="line">    <span class="keyword">private</span>  Integer age;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p><p>helloController.java<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RestController</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span></span>&#123;</div><div class="line"><span class="meta">@Autowired</span></div><div class="line"><span class="keyword">private</span> PersonProperties personProperties;</div><div class="line"></div><div class="line"><span class="meta">@RequestMapping</span>(value = <span class="string">"/hello"</span> ,method = RequestMethod.GET)</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">say</span><span class="params">()</span></span>&#123;</div><div class="line"><span class="keyword">return</span> personProperties.getAge();</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p><p>#####开发环境和生产环境的配置问题<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attr">spring:</span></div><div class="line"><span class="attr">  profiles:</span></div><div class="line"><span class="attr">    active:</span> <span class="string">dev</span></div></pre></td></tr></table></figure></p><p>使用<code>java -jar XXX.jar --spring.profiles.active=prod</code>解决开发环境和生产环境的配置问题</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://ow2flmior.bkt.clouddn.com/image/blog/beach-dawn-depth-of-field-1139541.png&quot; alt=&quot;日落&quot;&gt;&lt;/p&gt;
+&lt;h5 id=&quot;Controller-处理Http请求&quot;&gt;&lt;a href=&quot;#Controller-处理Http请求&quot; class=&quot;headerlink&quot; title=&quot;@Controller 处理Http请求&quot;&gt;&lt;/a&gt;@Controller 处理Http请求&lt;/h5&gt;&lt;p&gt;@Controller 用来响应页面，@Controller必须结合模板使用&lt;/p&gt;
+&lt;h5 id=&quot;RestController&quot;&gt;&lt;a href=&quot;#RestController&quot; class=&quot;headerlink&quot; title=&quot;@RestController&quot;&gt;&lt;/a&gt;@RestController&lt;/h5&gt;&lt;p&gt;Spring4之后新加入的注解，原来返回json需要@ResponseBody和@Controller配合，@RestController是@ResponseBody和@Controlle的组合&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="http://blog.zhangshuo.xin/categories/Java/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>写给十年后的你</title>
@@ -451,27 +473,6 @@ def index():
     </summary>
     
       <category term="Python" scheme="http://blog.zhangshuo.xin/categories/Python/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>比你努力的人比你更优秀，比你优秀的人比你更努力</title>
-    <link href="http://blog.zhangshuo.xin/2017/09/11/effort/"/>
-    <id>http://blog.zhangshuo.xin/2017/09/11/effort/</id>
-    <published>2017-09-11T11:10:08.000Z</published>
-    <updated>2017-12-18T02:47:55.581Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/1.png" alt="Effort"></p><h1 id="聪明干不过勤奋，勤奋干不过基因。"><a href="#聪明干不过勤奋，勤奋干不过基因。" class="headerlink" title="聪明干不过勤奋，勤奋干不过基因。"></a>聪明干不过勤奋，勤奋干不过基因。</h1><h3 id="如果用数学方式将它排一下的话……"><a href="#如果用数学方式将它排一下的话……" class="headerlink" title="如果用数学方式将它排一下的话……"></a>如果用数学方式将它排一下的话……</h3><p>  <em>聪明&lt;勤奋&lt;基因。</em><br><a id="more"></a><br>  既然基因这事儿是我们无法决定的，那么唯一的决定因素便是勤奋。</p><p>  说起这事儿，我容易想到的一个例子便是我的一个亲戚。他跟我年龄相差不大，所以对于我而言，我更容易了解他。他的学习生活完全可以用一句话概括：英语从小学差到高中，不出意料的话，大学也是如此。但最近，他倒是有发展英语的趋势，可惜只不过是“三天打鱼两天晒网”。</p><p>  我们班上成绩好的一个女生，戴着800度的眼睛，离了眼镜就什么也看不见了。可是不能否认她的成绩好，她是通过题海战术才提起来成绩的。老师说：“有量才有质。”恕我不能认同。<strong>她才十几岁，就用一副眼镜葬送了她的前半生与后半生。</strong>是的，她比我要优秀，她比我要努力。但是在此我只想说<strong>努力是要偷偷的，不为人所知。</strong>你要是知道了，被人了解到你比他要更努力，那岂不是老底都被摸清了吗？</p><h3 id="什么是优秀？超出别人所期料即优秀。"><a href="#什么是优秀？超出别人所期料即优秀。" class="headerlink" title="什么是优秀？超出别人所期料即优秀。"></a>什么是优秀？超出别人所期料即优秀。</h3><p>有人认为优秀就是你做到最好，这只是一方面，最重要的是别人对你是什么标准，而你超过了这个标准。</p><p>这像是跳高，每次跳都是在跳过你的极限。拿学习来说，超前学习就是优秀；工作，认真且仔细地完成。哦不，我忘了工作学习高效才是真牛。</p><p>我也不能否认除了勤奋更有其他的决定因素在其中，身份背景都会对此产生影响。可是毕竟勤奋能为你得到更多的资源，就凭这点，在这个只有一块蛋糕的世界才能争取到更多。</p><h3 id="虽然我认为我说这么多的全是些废话："><a href="#虽然我认为我说这么多的全是些废话：" class="headerlink" title="虽然我认为我说这么多的全是些废话："></a>虽然我认为我说这么多的全是些废话：</h3><p>但是，你要永远记住这句话：<strong>比你努力的人比你更优秀，比你优秀的人比你更努力。</strong></p><p><strong> 这无疑是一句很好的自勉的座右铭。</strong></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://ow2flmior.bkt.clouddn.com/image/blog/1.png&quot; alt=&quot;Effort&quot;&gt;&lt;/p&gt;
-&lt;h1 id=&quot;聪明干不过勤奋，勤奋干不过基因。&quot;&gt;&lt;a href=&quot;#聪明干不过勤奋，勤奋干不过基因。&quot; class=&quot;headerlink&quot; title=&quot;聪明干不过勤奋，勤奋干不过基因。&quot;&gt;&lt;/a&gt;聪明干不过勤奋，勤奋干不过基因。&lt;/h1&gt;&lt;h3 id=&quot;如果用数学方式将它排一下的话……&quot;&gt;&lt;a href=&quot;#如果用数学方式将它排一下的话……&quot; class=&quot;headerlink&quot; title=&quot;如果用数学方式将它排一下的话……&quot;&gt;&lt;/a&gt;如果用数学方式将它排一下的话……&lt;/h3&gt;&lt;p&gt;  &lt;em&gt;聪明&amp;lt;勤奋&amp;lt;基因。&lt;/em&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="其他" scheme="http://blog.zhangshuo.xin/categories/%E5%85%B6%E4%BB%96/"/>
     
     
   </entry>

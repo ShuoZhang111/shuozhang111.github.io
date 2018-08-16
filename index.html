@@ -352,12 +352,16 @@
 
       
         
-          
-            <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/beach-calm-clouds-378271.jpg" alt="日出"></p>
-<h5 id="Spring-Data-Jpa"><a href="#Spring-Data-Jpa" class="headerlink" title="Spring-Data-Jpa"></a>Spring-Data-Jpa</h5><p>JPA(Java Persistence API)定义了一系列对象持久化的标准，目前实现这一规范的产品有Hibernate， TopLink等。<br>添加组件<br><code>&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</code><br><code>&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</code><br>配置</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="attr">spring:</span></div><div class="line"><span class="attr">  profiles:</span></div><div class="line"><span class="attr">    active:</span> <span class="string">dev</span></div><div class="line"><span class="attr">datasource:</span>			<span class="comment">#配置数据库</span></div><div class="line"><span class="attr">  driver-class-name:</span> <span class="string">com.mysql.jdbc.Driver</span></div><div class="line"><span class="attr">  url:</span></div><div class="line"><span class="attr">  username:</span></div><div class="line"><span class="attr">  password:</span></div><div class="line"><span class="attr">jpa:</span>				<span class="comment">#配置jpa</span></div><div class="line"><span class="attr">  hibernate:</span></div><div class="line"><span class="attr">    ddl-auto:</span> <span class="string">create</span>		<span class="comment">#[updata,create-drop]   create会在每次运行时自动创建表如果表中有数据会被删除</span></div><div class="line"><span class="attr">  show-sql:</span> <span class="literal">true</span>			<span class="comment">#控制台打印sql语句</span></div></pre></td></tr></table></figure>
-
-          
+          <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/beach-calm-clouds-378271.jpg" alt="日出"></p>
+<h4 id="Spring-Boot-的一些数据库操作"><a href="#Spring-Boot-的一些数据库操作" class="headerlink" title="Spring-Boot 的一些数据库操作"></a>Spring-Boot 的一些数据库操作</h4><h5 id="Spring-Data-Jpa"><a href="#Spring-Data-Jpa" class="headerlink" title="Spring-Data-Jpa"></a>Spring-Data-Jpa</h5><p>JPA(Java Persistence API)定义了一系列对象持久化的标准，目前实现这一规范的产品有Hibernate， TopLink等。<br>添加组件<br><code>&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</code><br><code>&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</code><br>配置</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="attr">spring:</span></div><div class="line"><span class="attr">  profiles:</span></div><div class="line"><span class="attr">    active:</span> <span class="string">dev</span></div><div class="line"><span class="attr">datasource:</span>			<span class="comment">#配置数据库</span></div><div class="line"><span class="attr">  driver-class-name:</span> <span class="string">com.mysql.jdbc.Driver</span></div><div class="line"><span class="attr">  url:</span></div><div class="line"><span class="attr">  username:</span></div><div class="line"><span class="attr">  password:</span></div><div class="line"><span class="attr">jpa:</span>				<span class="comment">#配置jpa</span></div><div class="line"><span class="attr">  hibernate:</span></div><div class="line"><span class="attr">    ddl-auto:</span> <span class="string">create</span>  <span class="comment">#[updata,create-drop...]   create会在每次运行时自动创建表如果表中有数据会被删除</span></div><div class="line"><span class="attr">  show-sql:</span> <span class="literal">true</span>			<span class="comment">#控制台打印sql语句</span></div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/16/javaWeb-5/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

@@ -97,17 +97,17 @@
 
 
 
-<meta name="description" content="我们在使用Eclipse边运行项目边写代码的时候难免会受到Console弹窗的烦恼在Preferences-&amp;gt;Run/Debug-&amp;gt;Console里面,有两个是关于显示的：  一个是Show when program writes to standard out(当Console中有值弹出) 一个是Show when program writes standard error(当Con">
+<meta name="description" content="表单验证 需要验证属性前添加验证规则@Min(value = 18, message = &amp;quot;未成年&amp;quot;) 方法参数对象前添加@Valid表示需要验证的是这个对象,验证结果会返回到BindingResult对象中123456789101112@PostMapping(value = &quot;/person&quot;)public Person personAdd(@Valid Person pe">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Eclipse Console不显示">
-<meta property="og:url" content="http://blog.zhangshuo.xin/2018/06/09/java-other2/index.html">
+<meta property="og:title" content="Spring-Boot（三）">
+<meta property="og:url" content="http://blog.zhangshuo.xin/2018/08/18/javaWeb-6/index.html">
 <meta property="og:site_name" content="CourageZhang">
-<meta property="og:description" content="我们在使用Eclipse边运行项目边写代码的时候难免会受到Console弹窗的烦恼在Preferences-&amp;gt;Run/Debug-&amp;gt;Console里面,有两个是关于显示的：  一个是Show when program writes to standard out(当Console中有值弹出) 一个是Show when program writes standard error(当Con">
+<meta property="og:description" content="表单验证 需要验证属性前添加验证规则@Min(value = 18, message = &amp;quot;未成年&amp;quot;) 方法参数对象前添加@Valid表示需要验证的是这个对象,验证结果会返回到BindingResult对象中123456789101112@PostMapping(value = &quot;/person&quot;)public Person personAdd(@Valid Person pe">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-16T03:55:36.401Z">
+<meta property="og:updated_time" content="2018-09-13T14:31:10.329Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Eclipse Console不显示">
-<meta name="twitter:description" content="我们在使用Eclipse边运行项目边写代码的时候难免会受到Console弹窗的烦恼在Preferences-&amp;gt;Run/Debug-&amp;gt;Console里面,有两个是关于显示的：  一个是Show when program writes to standard out(当Console中有值弹出) 一个是Show when program writes standard error(当Con">
+<meta name="twitter:title" content="Spring-Boot（三）">
+<meta name="twitter:description" content="表单验证 需要验证属性前添加验证规则@Min(value = 18, message = &amp;quot;未成年&amp;quot;) 方法参数对象前添加@Valid表示需要验证的是这个对象,验证结果会返回到BindingResult对象中123456789101112@PostMapping(value = &quot;/person&quot;)public Person personAdd(@Valid Person pe">
 
 
 
@@ -137,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.zhangshuo.xin/2018/06/09/java-other2/"/>
+  <link rel="canonical" href="http://blog.zhangshuo.xin/2018/08/18/javaWeb-6/"/>
 
 
 
 
 
-  <title>Eclipse Console不显示 | CourageZhang</title>
+  <title>Spring-Boot（三） | CourageZhang</title>
   
 
 
@@ -260,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.zhangshuo.xin/2018/06/09/java-other2/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhangshuo.xin/2018/08/18/javaWeb-6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张硕">
@@ -277,7 +277,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Eclipse Console不显示</h2>
+          <h2 class="post-title" itemprop="name headline">Spring-Boot（三）</h2>
         
 
         <div class="post-meta">
@@ -289,8 +289,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-09T15:51:15+08:00">
-                2018-06-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-18T18:55:07+08:00">
+                2018-08-18
               </time>
             
 
@@ -312,8 +312,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/others/" itemprop="url" rel="index">
-                    <span itemprop="name">others</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -349,13 +349,21 @@
       
 
       
-        <p>我们在使用Eclipse边运行项目边写代码的时候难免会受到Console弹窗的烦恼<br>在Preferences-&gt;Run/Debug-&gt;Console里面,有两个是关于显示的：</p>
-<ul>
-<li>一个是Show when program writes to standard out(当Console中有值弹出)</li>
-<li>一个是Show when program writes standard error(当Console中有错误是弹出)。</li>
+        <h5 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h5><ul>
+<li>需要验证属性前添加验证规则<code>@Min(value = 18, message = &quot;未成年&quot;)</code></li>
+<li>方法参数对象前添加<code>@Valid</code>表示需要验证的是这个对象,验证结果会返回到<code>BindingResult</code>对象中<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@PostMapping</span>(value = <span class="string">"/person"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> Person <span class="title">personAdd</span><span class="params">(@Valid Person person, BindingResult bindingResult)</span></span>&#123;</div><div class="line">    <span class="comment">//	如果有错误的话</span></div><div class="line">    <span class="keyword">if</span> (bindingResult.hasErrors()) &#123;</div><div class="line">        System.out.println(bindingResult.getFieldError().getDefaultMessage());</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    person.setAge(person.getAge);</div><div class="line">    person.setName(person.getName);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> personRepository.save(person);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>我们把这两个取消勾选就可以了。</p>
-
+<h5 id="使用AOP处理请求"><a href="#使用AOP处理请求" class="headerlink" title="使用AOP处理请求"></a>使用AOP处理请求</h5><p>横切的技术由面向对象构建的庞大的类的体系进行水平切割，并且会将影响多各类的公共行为封装成一个可重用的模块，这个模块成为切面<br>将通用的逻辑从业务逻辑中分离出来。<br><code>当Spring启动时类已经被实例化，当Http请求来到时是不会执行构造方法的</code></p>
+<ul>
+<li><p>引入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-aop<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>建立处理文件 HttpAspect.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Aspect</span></div><div class="line"><span class="meta">@Component</span>		<span class="comment">//将这个文件引入到Spring容器中去</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpAspect</span> </span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="AOP统一处理请求日志"><a href="#AOP统一处理请求日志" class="headerlink" title="AOP统一处理请求日志"></a>AOP统一处理请求日志</h6>
       
     </div>
     
@@ -379,8 +387,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/06/other-4/" rel="next" title="这场战役我可能会输，但我肯定会站起来">
-                <i class="fa fa-chevron-left"></i> 这场战役我可能会输，但我肯定会站起来
+              <a href="/2018/08/16/javaWeb-5/" rel="next" title="Spring-Boot Jpa">
+                <i class="fa fa-chevron-left"></i> Spring-Boot Jpa
               </a>
             
           </div>
@@ -388,10 +396,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/23/other-5/" rel="prev" title="写给十年后的你">
-                写给十年后的你 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -443,8 +447,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -507,6 +520,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#表单验证"><span class="nav-number">1.</span> <span class="nav-text">表单验证</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用AOP处理请求"><span class="nav-number">2.</span> <span class="nav-text">使用AOP处理请求</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#AOP统一处理请求日志"><span class="nav-number">2.1.</span> <span class="nav-text">AOP统一处理请求日志</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

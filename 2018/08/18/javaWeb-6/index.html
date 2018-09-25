@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="CourageZhang">
 <meta property="og:description" content="表单验证 需要验证属性前添加验证规则@Min(value = 18, message = &amp;quot;未成年&amp;quot;) 方法参数对象前添加@Valid表示需要验证的是这个对象,验证结果会返回到BindingResult对象中123456789101112@PostMapping(value = &quot;/person&quot;)public Person personAdd(@Valid Person pe">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-13T14:31:10.329Z">
+<meta property="og:updated_time" content="2018-09-25T03:48:25.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring-Boot（三）">
 <meta name="twitter:description" content="表单验证 需要验证属性前添加验证规则@Min(value = 18, message = &amp;quot;未成年&amp;quot;) 方法参数对象前添加@Valid表示需要验证的是这个对象,验证结果会返回到BindingResult对象中123456789101112@PostMapping(value = &quot;/person&quot;)public Person personAdd(@Valid Person pe">
@@ -354,6 +354,7 @@
 <li>方法参数对象前添加<code>@Valid</code>表示需要验证的是这个对象,验证结果会返回到<code>BindingResult</code>对象中<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@PostMapping</span>(value = <span class="string">"/person"</span>)</div><div class="line"><span class="function"><span class="keyword">public</span> Person <span class="title">personAdd</span><span class="params">(@Valid Person person, BindingResult bindingResult)</span></span>&#123;</div><div class="line">    <span class="comment">//	如果有错误的话</span></div><div class="line">    <span class="keyword">if</span> (bindingResult.hasErrors()) &#123;</div><div class="line">        System.out.println(bindingResult.getFieldError().getDefaultMessage());</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">    person.setAge(person.getAge);</div><div class="line">    person.setName(person.getName);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> personRepository.save(person);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
+<a id="more"></a>
 <h5 id="使用AOP处理请求"><a href="#使用AOP处理请求" class="headerlink" title="使用AOP处理请求"></a>使用AOP处理请求</h5><p>横切的技术由面向对象构建的庞大的类的体系进行水平切割，并且会将影响多各类的公共行为封装成一个可重用的模块，这个模块成为切面<br>将通用的逻辑从业务逻辑中分离出来。<br><code>当Spring启动时类已经被实例化，当Http请求来到时是不会执行构造方法的</code></p>
 <ul>
 <li><p>引入依赖</p>

@@ -2,15 +2,27 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
+
+
+
 
 
 
@@ -38,36 +50,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -76,37 +58,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=6.4.1">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=6.4.1">
 
 
-
-  <link rel="alternate" href="/atom.xml" title="CourageZhang" type="application/atom+xml" />
-
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=6.4.1">
 
 
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+  <link rel="mask-icon" href="/favicon.ico?v=6.4.1" color="#222">
 
 
 
 
 
 
-<meta name="description" content="张硕的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CourageZhang">
-<meta property="og:url" content="http://blog.zhangshuo.xin/page/2/index.html">
-<meta property="og:site_name" content="CourageZhang">
-<meta property="og:description" content="张硕的个人博客">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CourageZhang">
-<meta name="twitter:description" content="张硕的个人博客">
 
 
 
@@ -115,15 +85,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '5.1.2',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -135,14 +103,40 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="张硕的个人博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CourageZhang">
+<meta property="og:url" content="http://blog.zhangshuo.xin/page/2/index.html">
+<meta property="og:site_name" content="CourageZhang">
+<meta property="og:description" content="张硕的个人博客">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CourageZhang">
+<meta name="twitter:description" content="张硕的个人博客">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="CourageZhang" type="application/atom+xml" />
+
+
+
 
   <link rel="canonical" href="http://blog.zhangshuo.xin/page/2/"/>
 
 
 
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title>CourageZhang-张硕的个人博客</title>
+  <title>CourageZhang</title>
   
 
 
@@ -152,9 +146,37 @@
 
 
 
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -171,19 +193,21 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">CourageZhang</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
-        <h1 class="site-subtitle" itemprop="description">blog</h1>
+        <p class="site-subtitle">notes</p>
       
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -191,45 +215,42 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
 
       
+      
     </ul>
+  
+
   
 
   
@@ -237,12 +258,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -255,17 +287,19 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.zhangshuo.xin/2017/12/18/vim-1/">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhangshuo.xin/2018/02/23/javaWeb-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张硕">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head.png">
+      <meta itemprop="description" content="张硕的个人博客">
+      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head2.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -277,52 +311,186 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/18/vim-1/" itemprop="url">Vim简单使用(一)</a></h2>
+                <a class="post-title-link" href="/2018/02/23/javaWeb-3/" itemprop="url">
+                  Convention初识
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T11:00:40+08:00">
-                2017-12-18
-              </time>
+            
             
 
             
 
+            
+              
+
+              
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-16 16:16:08" itemprop="dateModified" datetime="2018-08-16T16:16:08+08:00">2018-08-16</time>
+              
             
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/others/" itemprop="url" rel="index">
-                    <span itemprop="name">others</span>
-                  </a>
-                </span>
 
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/11.jpg" alt="蒲公英"></p>
+<h3 id="Struts2零配置"><a href="#Struts2零配置" class="headerlink" title="Struts2零配置"></a>Struts2零配置</h3><h4 id="Action映射规则："><a href="#Action映射规则：" class="headerlink" title="Action映射规则："></a>Action映射规则：</h4><h4 id="部署Action时-，actions-action-struts-struts2包会映射为根命名空间。"><a href="#部署Action时-，actions-action-struts-struts2包会映射为根命名空间。" class="headerlink" title="部署Action时 ，actions,action,struts,struts2包会映射为根命名空间。"></a>部署Action时 ，actions,action,struts,struts2包会映射为根命名空间。</h4><ul>
+<li>如果Action类名包含Action后缀，则去掉。(LoginAction -&gt; login.action)</li>
+<li>将类名的驼峰写法转成中划线写法(GetBooks -&gt; get-books.action)
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/02/23/javaWeb-3/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.zhangshuo.xin/2017/12/18/vim-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="张硕">
+      <meta itemprop="description" content="张硕的个人博客">
+      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head2.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CourageZhang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
                 
-                
+                <a class="post-title-link" href="/2017/12/18/vim-1/" itemprop="url">
+                  Vim简单使用(一)
+                </a>
               
-            </span>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+
+            
+              
+
+              
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-12-18 11:10:14" itemprop="dateModified" datetime="2017-12-18T11:10:14+08:00">2017-12-18</time>
+              
+            
+          </span>
+
           
 
           
@@ -360,6 +528,9 @@
         
       
     </div>
+
+    
+
     
     
     
@@ -398,6 +569,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -407,8 +580,8 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张硕">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head.png">
+      <meta itemprop="description" content="张硕的个人博客">
+      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head2.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -420,52 +593,42 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/15/other-1/" itemprop="url">关于Windows Git Bash javac 乱码</a></h2>
+                <a class="post-title-link" href="/2017/12/15/other-1/" itemprop="url">
+                  关于Windows Git Bash javac 乱码
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-15T17:24:46+08:00">
-                2017-12-15
-              </time>
+            
             
 
             
 
+            
+              
+
+              
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-12-18 10:59:55" itemprop="dateModified" datetime="2017-12-18T10:59:55+08:00">2017-12-18</time>
+              
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/others/" itemprop="url" rel="index">
-                    <span itemprop="name">others</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -502,6 +665,9 @@
         
       
     </div>
+
+    
+
     
     
     
@@ -540,6 +706,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -549,8 +717,8 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张硕">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head.png">
+      <meta itemprop="description" content="张硕的个人博客">
+      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head2.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -562,52 +730,42 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/22/javaWeb-2/" itemprop="url">记Apache POI 导出数据到Excel</a></h2>
+                <a class="post-title-link" href="/2017/11/22/javaWeb-2/" itemprop="url">
+                  记Apache POI 导出数据到Excel
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-22T22:16:57+08:00">
-                2017-11-22
-              </time>
+            
             
 
             
 
+            
+              
+
+              
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-02-23 17:05:32" itemprop="dateModified" datetime="2018-02-23T17:05:32+08:00">2018-02-23</time>
+              
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -649,6 +807,9 @@
         
       
     </div>
+
+    
+
     
     
     
@@ -687,6 +848,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -696,8 +859,8 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张硕">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head.png">
+      <meta itemprop="description" content="张硕的个人博客">
+      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head2.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -709,52 +872,42 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/15/java-other1/" itemprop="url">java-other1</a></h2>
+                <a class="post-title-link" href="/2017/11/15/java-other1/" itemprop="url">
+                  java-other1
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-15T08:45:35+08:00">
-                2017-11-15
-              </time>
+            
             
 
             
 
+            
+              
+
+              
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-12-19 14:09:50" itemprop="dateModified" datetime="2017-12-19T14:09:50+08:00">2017-12-19</time>
+              
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -800,6 +953,9 @@
         
       
     </div>
+
+    
+
     
     
     
@@ -838,6 +994,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -847,8 +1005,8 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张硕">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head.png">
+      <meta itemprop="description" content="张硕的个人博客">
+      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head2.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -860,52 +1018,42 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/14/javaWeb-1/" itemprop="url">Java I/O的工作机制</a></h2>
+                <a class="post-title-link" href="/2017/11/14/javaWeb-1/" itemprop="url">
+                  Java I/O的工作机制
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T12:48:23+08:00">
-                2017-11-14
-              </time>
+            
             
 
             
 
+            
+              
+
+              
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-12-18 10:47:00" itemprop="dateModified" datetime="2017-12-18T10:47:00+08:00">2017-12-18</time>
+              
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -948,6 +1096,9 @@
         
       
     </div>
+
+    
+
     
     
     
@@ -986,6 +1137,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -995,8 +1148,8 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张硕">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head.png">
+      <meta itemprop="description" content="张硕的个人博客">
+      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head2.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1008,52 +1161,42 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/09/flaskStudy-7/" itemprop="url">Flask学习笔记（七）</a></h2>
+                <a class="post-title-link" href="/2017/10/09/flaskStudy-7/" itemprop="url">
+                  Flask学习笔记（七）
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-09T12:52:14+08:00">
-                2017-10-09
-              </time>
+            
             
 
             
 
+            
+              
+
+              
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-12-18 10:47:26" itemprop="dateModified" datetime="2017-12-18T10:47:26+08:00">2017-12-18</time>
+              
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1094,6 +1237,9 @@
         
       
     </div>
+
+    
+
     
     
     
@@ -1132,6 +1278,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1141,8 +1289,8 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张硕">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head.png">
+      <meta itemprop="description" content="张硕的个人博客">
+      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head2.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1154,52 +1302,42 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/05/flaskStudy-6/" itemprop="url">Flask学习笔记（六）</a></h2>
+                <a class="post-title-link" href="/2017/10/05/flaskStudy-6/" itemprop="url">
+                  Flask学习笔记（六）
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-05T21:48:58+08:00">
-                2017-10-05
-              </time>
+            
             
 
             
 
+            
+              
+
+              
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-12-18 10:42:46" itemprop="dateModified" datetime="2017-12-18T10:42:46+08:00">2017-12-18</time>
+              
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1241,6 +1379,9 @@
         
       
     </div>
+
+    
+
     
     
     
@@ -1279,6 +1420,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1288,8 +1431,8 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张硕">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head.png">
+      <meta itemprop="description" content="张硕的个人博客">
+      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head2.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1301,52 +1444,42 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/05/flaskStudy-5/" itemprop="url">Flask 学习笔记（五）</a></h2>
+                <a class="post-title-link" href="/2017/10/05/flaskStudy-5/" itemprop="url">
+                  Flask 学习笔记（五）
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-05T17:33:09+08:00">
-                2017-10-05
-              </time>
+            
             
 
             
 
+            
+              
+
+              
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-12-18 10:47:36" itemprop="dateModified" datetime="2017-12-18T10:47:36+08:00">2017-12-18</time>
+              
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1389,6 +1522,9 @@
         
       
     </div>
+
+    
+
     
     
     
@@ -1427,6 +1563,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1436,8 +1574,8 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="张硕">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head.png">
+      <meta itemprop="description" content="张硕的个人博客">
+      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head2.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1449,52 +1587,42 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/05/flaskStudy-4/" itemprop="url">Flask学习笔记（四）</a></h2>
+                <a class="post-title-link" href="/2017/10/05/flaskStudy-4/" itemprop="url">
+                  Flask学习笔记（四）
+                </a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-05T12:45:39+08:00">
-                2017-10-05
-              </time>
+            
             
 
             
 
+            
+              
+
+              
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-12-18 10:42:34" itemprop="dateModified" datetime="2017-12-18T10:42:34+08:00">2017-12-18</time>
+              
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1537,161 +1665,9 @@
         
       
     </div>
-    
-    
-    
 
     
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.zhangshuo.xin/2017/10/04/flaskStudy-3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="张硕">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://ow2flmior.bkt.clouddn.com/image/blog/head.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CourageZhang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/04/flaskStudy-3/" itemprop="url">Flask 学习笔记（三）</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-04T00:25:04+08:00">
-                2017-10-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/7.jpg" alt="5"></p>
-<p>前面我们已经练习了一个最简单的Flask程序，下面我们更加深入了解一下Flask的工作方式</p>
-<h3 id="请求上下文"><a href="#请求上下文" class="headerlink" title="请求上下文"></a>请求上下文</h3><p>Flask 从客户端收到请求时，要让视图函数能访问一些对象，这样才能处理请求。<br>要让视图函数能够访问请求对象，一个显而易见的方法就是将其<strong>作为参数传入视图函数</strong>不过这样会导致程序中每个视图函数都增加一个参数<br>为了避免大量可有可无的参数，Flask使用上下文临时吧某些对象变为全局可访问。有了上下文，就可以写出下了视图函数：</p>
-<pre><code>from flask import request
-@app.route(&apos;/&apos;)
-def index():
-    user_agent = request.headers.get(&apos;User-Agent&apos;)
-    return &apos;&lt;p&gt;Your browser is %s&lt;/p&gt;&apos; % user_agent 
-</code></pre><p>在这段视图函数我们把request当作全局变量来使用。事实上，request不可能是全局变量。在多线程服务器中，多个线程同时处理不同客户端发送的不同请求时，每个线程看到的request必然是不相同的。Flask使用上下文让特定的变量在一个线程中全局可访问，与此同时不干扰其他线程。</p>
-<h4 id="Flask上下文全局变量"><a href="#Flask上下文全局变量" class="headerlink" title="Flask上下文全局变量"></a>Flask上下文全局变量</h4>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/04/flaskStudy-3/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
     
     
     
@@ -1726,15 +1702,12 @@ def index():
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1757,67 +1730,81 @@ def index():
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          
-            <img class="site-author-image" itemprop="image"
-              src="http://ow2flmior.bkt.clouddn.com/image/blog/head.png"
-              alt="张硕" />
-          
-            <p class="site-author-name" itemprop="name">张硕</p>
-            <p class="site-description motion-element" itemprop="description"></p>
-        </div>
-
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <a href="/archives/">
+              <img class="site-author-image" itemprop="image"
+                src="http://ow2flmior.bkt.clouddn.com/image/blog/head2.jpg"
+                alt="张硕" />
             
-                <span class="site-state-item-count">24</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
+              <p class="site-author-name" itemprop="name">张硕</p>
+              <p class="site-description motion-element" itemprop="description">张硕的个人博客</p>
           </div>
-        
 
-        <div class="links-of-author motion-element">
           
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -1834,27 +1821,35 @@ def index():
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">张硕</span>
+
+  
 
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.3.9</div>
+
+
 
   <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.1</div>
+
+
 
 
         
+
 
 
 
@@ -1873,6 +1868,11 @@ def index():
       </div>
     
 
+    
+	
+    
+
+    
   </div>
 
   
@@ -1891,7 +1891,6 @@ def index():
 
 
 
-  
 
 
 
@@ -1904,46 +1903,44 @@ def index():
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
   
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+  
 
 
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
 
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
 
 
   
@@ -1951,21 +1948,7 @@ def index():
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
 
 
 
@@ -1973,9 +1956,9 @@ def index():
 
 
 
-
-
   
+
+
 
 
 
@@ -1990,6 +1973,15 @@ def index():
 
 
 
+  
+
+  
+
+  
+
+  
+
+  
   
 
   

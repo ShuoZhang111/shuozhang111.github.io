@@ -2,15 +2,27 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
+
+
+
 
 
 
@@ -38,36 +50,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
 
 
 
@@ -76,37 +58,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.ico?v=6.4.1">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico?v=6.4.1">
 
 
-
-  <link rel="alternate" href="/atom.xml" title="CourageZhang" type="application/atom+xml" />
-
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico?v=6.4.1">
 
 
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+  <link rel="mask-icon" href="/favicon.ico?v=6.4.1" color="#222">
 
 
 
 
 
 
-<meta name="description" content="张硕的个人博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CourageZhang">
-<meta property="og:url" content="http://blog.zhangshuo.xin/archives/index.html">
-<meta property="og:site_name" content="CourageZhang">
-<meta property="og:description" content="张硕的个人博客">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CourageZhang">
-<meta name="twitter:description" content="张硕的个人博客">
 
 
 
@@ -115,15 +85,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '5.1.2',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -135,12 +103,38 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="张硕的个人博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="CourageZhang">
+<meta property="og:url" content="http://blog.zhangshuo.xin/archives/index.html">
+<meta property="og:site_name" content="CourageZhang">
+<meta property="og:description" content="张硕的个人博客">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CourageZhang">
+<meta name="twitter:description" content="张硕的个人博客">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="CourageZhang" type="application/atom+xml" />
+
+
+
 
   <link rel="canonical" href="http://blog.zhangshuo.xin/archives/"/>
 
 
 
-
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>归档 | CourageZhang</title>
   
@@ -152,9 +146,37 @@
 
 
 
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -170,19 +192,21 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">CourageZhang</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
-        <h1 class="site-subtitle" itemprop="description">blog</h1>
+        <p class="site-subtitle">notes</p>
       
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -190,45 +214,42 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives menu-item-active">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
 
       
+      
     </ul>
+  
+
   
 
   
@@ -236,12 +257,39 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+          
           <div id="content" class="content">
             
 
@@ -252,14 +300,16 @@
     <div id="posts" class="posts-collapse">
       <span class="archive-move-on"></span>
 
+      
       <span class="archive-page-counter">
         
         
         
           
         
-        嗯..! 目前共计 24 篇日志。 继续努力。
+        嗯..! 目前共计 25 篇日志。 继续努力。
       </span>
+      
 
       
 
@@ -270,7 +320,7 @@
         
           
           <div class="collection-title">
-            <h2 class="archive-year" id="archive-year-2018">2018</h2>
+            <h1 class="archive-year" id="archive-year-2018">2018</h1>
           </div>
         
         
@@ -280,7 +330,44 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h3 class="post-title">
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2018/09/25/mysql-1/" itemprop="url">
+              
+                <span itemprop="name">ERROR 1698 (28000) Access denied for user 'root'@'localhost'</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-09-25T11:41:22+08:00"
+              content="2018-09-25" >
+          09-25
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
+        
+        
+        
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
         
             <a class="post-title-link" href="/2018/08/18/javaWeb-6/" itemprop="url">
               
@@ -288,7 +375,7 @@
               
             </a>
         
-      </h3>
+      </h2>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -317,7 +404,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h3 class="post-title">
+      <h2 class="post-title">
         
             <a class="post-title-link" href="/2018/08/16/javaWeb-5/" itemprop="url">
               
@@ -325,7 +412,7 @@
               
             </a>
         
-      </h3>
+      </h2>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -354,7 +441,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h3 class="post-title">
+      <h2 class="post-title">
         
             <a class="post-title-link" href="/2018/08/14/javaWeb-4/" itemprop="url">
               
@@ -362,7 +449,7 @@
               
             </a>
         
-      </h3>
+      </h2>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -391,7 +478,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h3 class="post-title">
+      <h2 class="post-title">
         
             <a class="post-title-link" href="/2018/06/23/other-5/" itemprop="url">
               
@@ -399,7 +486,7 @@
               
             </a>
         
-      </h3>
+      </h2>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -428,7 +515,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h3 class="post-title">
+      <h2 class="post-title">
         
             <a class="post-title-link" href="/2018/06/09/java-other2/" itemprop="url">
               
@@ -436,7 +523,7 @@
               
             </a>
         
-      </h3>
+      </h2>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -465,7 +552,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h3 class="post-title">
+      <h2 class="post-title">
         
             <a class="post-title-link" href="/2018/06/06/other-4/" itemprop="url">
               
@@ -473,7 +560,7 @@
               
             </a>
         
-      </h3>
+      </h2>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -502,7 +589,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h3 class="post-title">
+      <h2 class="post-title">
         
             <a class="post-title-link" href="/2018/06/02/other-3/" itemprop="url">
               
@@ -510,7 +597,7 @@
               
             </a>
         
-      </h3>
+      </h2>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -539,7 +626,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h3 class="post-title">
+      <h2 class="post-title">
         
             <a class="post-title-link" href="/2018/03/17/BEZIER/" itemprop="url">
               
@@ -547,7 +634,7 @@
               
             </a>
         
-      </h3>
+      </h2>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -576,7 +663,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h3 class="post-title">
+      <h2 class="post-title">
         
             <a class="post-title-link" href="/2018/03/16/other-2/" itemprop="url">
               
@@ -584,50 +671,13 @@
               
             </a>
         
-      </h3>
+      </h2>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
               datetime="2018-03-16T11:05:53+08:00"
               content="2018-03-16" >
           03-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/23/javaWeb-3/" itemprop="url">
-              
-                <span itemprop="name">Convention初识</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-23T11:12:27+08:00"
-              content="2018-02-23" >
-          02-23
         </time>
       </div>
 
@@ -646,16 +696,13 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -678,67 +725,81 @@
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          
-            <img class="site-author-image" itemprop="image"
-              src="http://ow2flmior.bkt.clouddn.com/image/blog/head.png"
-              alt="张硕" />
-          
-            <p class="site-author-name" itemprop="name">张硕</p>
-            <p class="site-description motion-element" itemprop="description"></p>
-        </div>
-
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <a href="/archives/">
+              <img class="site-author-image" itemprop="image"
+                src="http://ow2flmior.bkt.clouddn.com/image/blog/head2.jpg"
+                alt="张硕" />
             
-                <span class="site-state-item-count">24</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
+              <p class="site-author-name" itemprop="name">张硕</p>
+              <p class="site-description motion-element" itemprop="description">张硕的个人博客</p>
           </div>
-        
 
-        <div class="links-of-author motion-element">
           
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -755,27 +816,35 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">张硕</span>
+
+  
 
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.3.9</div>
+
+
 
   <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.2</div>
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.4.1</div>
+
+
 
 
         
+
 
 
 
@@ -794,6 +863,11 @@
       </div>
     
 
+    
+	
+    
+
+    
   </div>
 
   
@@ -812,7 +886,6 @@
 
 
 
-  
 
 
 
@@ -825,46 +898,44 @@
 
 
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
   
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+  
 
 
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
 
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.4.1"></script>
+
 
 
   
@@ -872,21 +943,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
 
 
 
@@ -894,9 +951,9 @@
 
 
 
-
-
   
+
+
 
 
 
@@ -911,6 +968,15 @@
 
 
 
+  
+
+  
+
+  
+
+  
+
+  
   
 
   

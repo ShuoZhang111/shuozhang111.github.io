@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>张硕</title>
+  <title>ShuoZhang&#39;s Notes</title>
   
-  <subtitle>notes</subtitle>
+  <subtitle>Shotr Notes</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.zhangshuo.xin/"/>
@@ -10,7 +10,7 @@
   <id>http://blog.zhangshuo.xin/</id>
   
   <author>
-    <name>courage_z</name>
+    <name>ShuoZhang</name>
     
   </author>
   

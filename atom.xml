@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.zhangshuo.xin/"/>
-  <updated>2018-09-25T11:39:48.169Z</updated>
+  <updated>2018-10-13T10:22:18.470Z</updated>
   <id>http://blog.zhangshuo.xin/</id>
   
   <author>
@@ -21,14 +21,15 @@
     <link href="http://blog.zhangshuo.xin/2018/09/25/mysql-1/"/>
     <id>http://blog.zhangshuo.xin/2018/09/25/mysql-1/</id>
     <published>2018-09-25T03:41:22.000Z</published>
-    <updated>2018-09-25T11:39:48.169Z</updated>
+    <updated>2018-10-13T10:22:18.470Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/136.png" class="full-image"></p><p>最近在电脑上安装新Mysql是遇到了一个ERROR 1698 (28000): Access denied for user ‘root’@’localhost’问题<br><a id="more"></a></p><h5 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h5><p>在新的mysql中，如果密码在安装时保留为空，则它基于auth_socket插件<br>正确的方法是使用sudo权限登陆Mysql<br><code>sudo mysql -u root -p</code></p><p>然后使用下面命令更新密码<br><code>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;new-password&#39;;</code></p><p>完成后重启mysql<br><code>sudo service mysql stop</code><br><code>sudo servide mysql start</code></p>]]></content>
+    <content type="html"><![CDATA[<p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/136.png" class="full-image"></p><p>最近在电脑上安装新Mysql是遇到了一个ERROR 1698 (28000): Access denied for user ‘root’@’localhost’问题<br>因为我使用的是Ubuntu，mysql默认使用的是<code>UNIX auth_socket</code>插件<br>意味着：db_users使用系统用户凭证”auth”我们可以通过下面的方式判断我们是不是真的这样</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sduo mysql -u root</div><div class="line">USE mysql;</div><div class="line">SELECT User, Host, plugin FROM mysql.user;</div></pre></td></tr></table></figure><a id="more"></a><p>如果查询中看到root用户正在使用auth_socket插件<br>我们有两种办法解决它：</p><ul><li>（一）设置root用户使用mysql_native_password插件</li><li>（二）可以创建一个新的system_user</li></ul><h5 id="解决（一）"><a href="#解决（一）" class="headerlink" title="解决（一）"></a>解决（一）</h5><p>在新的mysql中，如果密码在安装时保留为空，则它基于auth_socket插件<br>正确的方法是使用sudo权限登陆Mysql<br><code>sudo mysql -u root -p</code></p><p>然后使用下面命令更新密码<br><code>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;new-password&#39;;</code></p><p>完成后重启mysql<br><code>sudo service mysql stop</code><br><code>sudo servide mysql start</code></p><h5 id="解决（二）"><a href="#解决（二）" class="headerlink" title="解决（二）"></a>解决（二）</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">sudo mysql -u root</div><div class="line"></div><div class="line">USE mysql;</div><div class="line">CREATE USER &apos;YOUR_SYSTEM_USER&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;&apos; ;</div><div class="line">GRANT ALL PRIVILEGES ON *.* TO &apos;YOUR_SYSTEM_USER&apos;@&apos;localhost&apos;;</div><div class="line">UPDATE user SET plugin=&apos;auth_socket&apos; WHERE User=&apos;YOUR_SYSTEM_USER&apos;;</div><div class="line">FLUSH PRIVILEGES;</div><div class="line">exit;</div></pre></td></tr></table></figure><p>完成后重启mysql<br><code>sudo service mysql stop</code><br><code>sudo servide mysql start</code></p>]]></content>
     
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;http://ow2flmior.bkt.clouddn.com/image/blog/136.png&quot; class=&quot;full-image&quot;&gt;&lt;/p&gt;
-&lt;p&gt;最近在电脑上安装新Mysql是遇到了一个ERROR 1698 (28000): Access denied for user ‘root’@’localhost’问题&lt;br&gt;
+&lt;p&gt;最近在电脑上安装新Mysql是遇到了一个ERROR 1698 (28000): Access denied for user ‘root’@’localhost’问题&lt;br&gt;因为我使用的是Ubuntu，mysql默认使用的是&lt;code&gt;UNIX auth_socket&lt;/code&gt;插件&lt;br&gt;意味着：db_users使用系统用户凭证”auth”我们可以通过下面的方式判断我们是不是真的这样&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;sduo mysql -u root&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;USE mysql;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;SELECT User, Host, plugin FROM mysql.user;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     

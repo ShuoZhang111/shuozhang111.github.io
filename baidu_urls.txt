@@ -1,5 +1,5 @@
+http://blog.zhangshuo.xin/2018/11/12/binary-1/
 http://blog.zhangshuo.xin/2018/09/25/mysql-1/
 http://blog.zhangshuo.xin/2018/08/18/javaWeb-6/
 http://blog.zhangshuo.xin/2018/08/16/javaWeb-5/
 http://blog.zhangshuo.xin/2018/08/14/javaWeb-4/
-http://blog.zhangshuo.xin/2018/06/23/other-5/

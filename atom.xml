@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.zhangshuo.xin/"/>
-  <updated>2018-10-13T10:22:18.470Z</updated>
+  <updated>2018-11-12T15:33:08.513Z</updated>
   <id>http://blog.zhangshuo.xin/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于二进制的一些认识</title>
+    <link href="http://blog.zhangshuo.xin/2018/11/12/binary-1/"/>
+    <id>http://blog.zhangshuo.xin/2018/11/12/binary-1/</id>
+    <published>2018-11-12T14:39:59.000Z</published>
+    <updated>2018-11-12T15:33:08.513Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://cdn.zhangshuo.xin/binarymd.jpg" alt="binarymd"></p><p>二进制是一种逢二进一的计数规则</p><h4 id="补码"><a href="#补码" class="headerlink" title="补码"></a>补码</h4><p> 补码是一种计算机中用于处理有符号数的一种编码规则，其思想是将有限位数的二进制数一分为二，以最高位作为标志位，对于Java语言来说最高位为1则表示的数位负数。</p><h5 id="四位补码"><a href="#四位补码" class="headerlink" title="四位补码"></a>四位补码</h5><p><img src="" alt="四位补码图片"></p><ul><li>互补对称性<ul><li>(-n) = (~n + 1) （最小值除外）负n = 取反 n + 1 （最小值除外）</li></ul></li></ul><h4 id="二进制的计算"><a href="#二进制的计算" class="headerlink" title="二进制的计算"></a>二进制的计算</h4><h5 id="与运算-amp"><a href="#与运算-amp" class="headerlink" title="与运算 &amp;"></a>与运算 &amp;</h5><ul><li><p>按位对齐，全1得1，有0得0</p><ul><li><p>例如： 10001111</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">  10001111</div><div class="line">&amp; 11011010</div><div class="line">  10001010</div></pre></td></tr></table></figure></li></ul></li><li><p>运用1：掩码Mask计算,截取数据</p><ul><li><p>例如：对10001111 10001111 进行8位掩码计算</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> 10001111 10001111</div><div class="line">&amp;00000000 11111111</div><div class="line">          10001111</div></pre></td></tr></table></figure></li></ul><p>这样我们就截取到了10001111 10001111这组数据的后八位数据，这在网络数据传输中应用广泛</p></li><li><p>运用2：优化对2的整数次幂取余的优化</p><ul><li>例如： 123224 &amp; 8; 我们可以优化为  123224 &amp; 7；</li><li>123224 &amp; 16；我们可以优化为 123224 &amp; 0xf;</li></ul></li></ul><h5 id="右移位计算-gt-gt-gt"><a href="#右移位计算-gt-gt-gt" class="headerlink" title="右移位计算 &gt;&gt;&gt;"></a>右移位计算 &gt;&gt;&gt;</h5><ul><li>将二进制数据的整体向右移动，低位自动溢出舍弃，高位补0；<ul><li>例如：01101001 11110101 01011111 00101001 &gt;&gt;&gt; 8 = 00000000 01101001 11110101 01011111</li></ul></li><li>运用1 配合 掩码Mask运算 假设我们在数据传输中的大小无法适用于我们原始数据的大小，我们使用以为和掩码Mask运算对原始数据的二进制数进行截取，分开传输。</li></ul><h5 id="左移位-lt-lt"><a href="#左移位-lt-lt" class="headerlink" title="左移位  &lt;&lt;"></a>左移位  &lt;&lt;</h5><ul><li>将二进制数字整体向左移动，高位溢出舍弃，低位补0<ul><li>例如:01101001 11110101 01011111 00101001 &lt;&lt; 8 = 11110101 01011111 00101001 00000000</li></ul></li></ul><h5 id="或运算"><a href="#或运算" class="headerlink" title="或运算  |"></a>或运算  |</h5><ul><li>将二进制数按位上下对齐；遇到1就是1；都是0就是0<ul><li>例如: 00000000 00000000 10011010 00000000 | 00000000 00000000 00000000 11111111 = 00000000 00000000 10011010 11111111</li></ul></li><li>运用1:左移位可以将我们方便数据传输是所截取的二进制数字进行合并<ul><li>例如: 00000000 00000000 00000000 10011010  &lt;&lt; 8 = 00000000 00000000 10011010 00000000<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">00000000 00000000 10011010 00000000 | 00000000 00000000 00000000 10011010 = 00000000 00000000 10001010 10001010</div></pre></td></tr></table></figure></li></ul></li></ul><h4 id="移位计算数学意义"><a href="#移位计算数学意义" class="headerlink" title="移位计算数学意义"></a>移位计算数学意义</h4><ul><li>我们在10进制中向左移动以为是扩大10倍,当然我们在2进制中同样适用</li></ul><h5 id="lt-lt"><a href="#lt-lt" class="headerlink" title="&lt;&lt;"></a>&lt;&lt;</h5><ul><li>数字向左移动，数字每移动一次扩大2倍。<ul><li>例如: n = 00000000 00000000 00000000 00110010   50</li><li>m = n &lt;&lt; 1 0000000 00000000 00000000 001100100  100</li><li>k = m &lt;&lt; 1 000000  00000000 00000000 0011001000  200</li><li>g = k &lt;&lt; 1 00000   00000000 00000000 00110010000 400</li></ul></li></ul><h5 id="数学右移位-gt-gt"><a href="#数学右移位-gt-gt" class="headerlink" title="数学右移位 &gt;&gt;"></a>数学右移位 &gt;&gt;</h5><ul><li>每移动一次数字其结果相当于数字除以2，向小方向取整<ul><li>n    = 00000000 00000000 00000000 00110010   50</li><li>m=n&gt;&gt;1 000000000 00000000 00000000 0011001   25</li><li>k=n&gt;&gt;2 0000000000 00000000 00000000 001100   12</li></ul></li></ul><h5 id="右移位-gt-gt-和-gt-gt-gt-的区别"><a href="#右移位-gt-gt-和-gt-gt-gt-的区别" class="headerlink" title="右移位 &gt;&gt; 和 &gt;&gt;&gt; 的区别"></a>右移位 &gt;&gt; 和 &gt;&gt;&gt; 的区别</h5><ul><li>正数时候的运算结果一样</li><li>负数的时候<ul><li>>&gt; 高位补1,保持数学除法运算结果</li><li>>&gt;&gt; 高位补0,就是逻辑上数字向右移动,不是数学中的除法</li></ul></li></ul><h4 id="面试题目"><a href="#面试题目" class="headerlink" title="面试题目"></a>面试题目</h4><ul><li>System.out.println(~-9);<ul><li>正确答案是会 ~-9 = 8,(补码的对称性: -n = ~n + 1)</li></ul></li><li>一个正数溢出以后是负数?<ul><li>正确答案是:不一定,溢出有可能是负数,有可能是正数,还有可能会是它本身</li><li>例如: <code>m = 10 + Integer.MAX_VALUE + 1 + Integer.MAX_VALUE + 1;</code>结果m = 10;溢出会他本身</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;http://cdn.zhangshuo.xin/binarymd.jpg&quot; alt=&quot;binarymd&quot;&gt;&lt;/p&gt;
+&lt;p&gt;二进制是一种逢二进一的计数规则&lt;/p&gt;
+&lt;h4 id=&quot;补码&quot;&gt;&lt;a href=&quot;#补码&quot; class=&quot;headerlink&quot; 
+      
+    
+    </summary>
+    
+      <category term="其他" scheme="http://blog.zhangshuo.xin/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>ERROR 1698 (28000) Access denied for user &#39;root&#39;@&#39;localhost&#39;</title>
@@ -439,28 +464,6 @@
       &lt;p&gt;&lt;img src=&quot;http://ow2flmior.bkt.clouddn.com/image/blog/8.jpg&quot; alt=&quot;8&quot;&gt;&lt;br&gt;我记得在最早的一篇文章中我们说过Flask主要有两个依赖，这一篇文章我为大家介绍以下Flask的第二个依赖，&lt;strong&gt;模板&lt;/strong&gt;&lt;br&gt;要想开发出易于维护的程序，关键在于编写形式简洁且结构良好，当我们开发比较大的项目的时候，我们往往会使用到使用程序中的真实值去替换模板中的变量，最终得到响应字符串，这一过程我们称作渲染。&lt;/p&gt;
 &lt;h3 id=&quot;Jinja2模块引擎&quot;&gt;&lt;a href=&quot;#Jinja2模块引擎&quot; class=&quot;headerlink&quot; title=&quot;Jinja2模块引擎&quot;&gt;&lt;/a&gt;Jinja2模块引擎&lt;/h3&gt;&lt;p&gt;形式最简单的Jinja2模板就是一个包含响应文本的文件。&lt;/p&gt;
 &lt;h4 id=&quot;简单的例子&quot;&gt;&lt;a href=&quot;#简单的例子&quot; class=&quot;headerlink&quot; title=&quot;简单的例子&quot;&gt;&lt;/a&gt;简单的例子&lt;/h4&gt;&lt;p&gt;我们新建两个模块，样式是这样的：./templates/index.html ./templates/user.html&lt;br&gt;./templates/index.html&lt;br&gt;&lt;code&gt;&amp;lt;h1&amp;gt;Hello World!&amp;lt;/h1&amp;gt;&lt;/code&gt;&lt;br&gt;./templates/user.html&lt;br&gt;&lt;code&gt;&amp;lt;h1&amp;gt;Hello &amp;lt;/h1&amp;gt;&lt;/code&gt;&lt;br&gt;再新建一个渲染模块，格式是这样的: ./hello.py&lt;br&gt;./hello.py&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Python" scheme="http://blog.zhangshuo.xin/categories/Python/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Flask学习笔记（四）</title>
-    <link href="http://blog.zhangshuo.xin/2017/10/05/flaskStudy-4/"/>
-    <id>http://blog.zhangshuo.xin/2017/10/05/flaskStudy-4/</id>
-    <published>2017-10-05T04:45:39.000Z</published>
-    <updated>2017-12-18T02:42:34.790Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="http://ow2flmior.bkt.clouddn.com/image/blog/6.jpg" alt="6"><br>在之前我们介绍Flask的时候就说过Flask是一个非常灵活的框架，而且Flask也是支持好多的拓展。</p><h3 id="Flask拓展"><a href="#Flask拓展" class="headerlink" title="Flask拓展"></a>Flask拓展</h3><p>Flask被设计为可拓展形式，故而没有提供一些重要的功能，例如数据库和用户认证，所以开发者可以自由选择最合适的包，或者按照需求自行开发。<br>当然了Flask有好多的拓展，就像<strong>海底之冰山</strong>我一直都是对未知的事物抱有一颗敬畏之心，所以我肯定是不会，而且也不必了解全部的拓展包。我们就只谈一下最常用的一些包。</p><h4 id="Flask-Script支持命令行选项"><a href="#Flask-Script支持命令行选项" class="headerlink" title="Flask-Script支持命令行选项"></a>Flask-Script支持命令行选项</h4><p>当我们使用Flask开发Web服务器的时候会支持很多启动设置选项，但只能在脚本中作为参数传递给app.run()函数，这样的操作是很不方便的，传递设置选项的理想方式就是使用命令行参数。<br>Flask-Script是Flask拓展，为Flask程序添加了一个命令行解析器。Flask-Script自带了一组常用的选项，而且还支持自定义命令。我们使用pip进行安装。<br><a id="more"></a></p><p><code>(env)$ pip install flask-script</code></p><pre><code>from flask.ext.script import Managerfrom flask import Flaskapp = Flask(__name__)manager = Manager(app)@app.routedef index():    return &apos;&lt;h1&gt;Hello World！&lt;/h1&gt;&apos;if __name__ == &apos;__main__&apos;:    manager.run()</code></pre><p>上面我们做了一个简单的示例。专门为Flask开发的拓展都暴露在flask.ext命名空间下。Flask-Script输出了一个名为Manager的类，可以从flask.ext.script中引入。<br>当我们启动这个程序的时候就可以解析命令了。</p><pre><code>$python hello.pyusage: hello.py [-h] {shell,runserver} ...positional arguments:  {shell,runserver}    shell             在Flask应用上下文中运行Python Shell    runserver         运行Flask开发服务器：app.run()optional arguments:  -h --help            显示帮助信息并退出</code></pre><p>shell命令用于在程序上下文中启动Python Shell会话，可以使用Shell维护，调试异常。<br>runserver命令用来启动Web服务器，运行<code>python hello.py runserver</code>将以调试模式启动Web服务器。</p><pre><code>(env)$python hello.py runserver --help usage: hello.py runserver [-h] [-t HOST] [-p PORT] [--threaded]                            [--processes PROCESSES] [--passthrough-errors] [-d] [-r]</code></pre><p>我们是这样运行上面的程序的</p><pre><code>(env)$ python hello.py runserver --host 0.0.0.0 * Running on http://0.0.0.0:5000/ * Restarting with reloader</code></pre><p>现在我们我们就可以访问了。关于–host后的参数，这里并不进行详细讲解。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://ow2flmior.bkt.clouddn.com/image/blog/6.jpg&quot; alt=&quot;6&quot;&gt;&lt;br&gt;在之前我们介绍Flask的时候就说过Flask是一个非常灵活的框架，而且Flask也是支持好多的拓展。&lt;/p&gt;
-&lt;h3 id=&quot;Flask拓展&quot;&gt;&lt;a href=&quot;#Flask拓展&quot; class=&quot;headerlink&quot; title=&quot;Flask拓展&quot;&gt;&lt;/a&gt;Flask拓展&lt;/h3&gt;&lt;p&gt;Flask被设计为可拓展形式，故而没有提供一些重要的功能，例如数据库和用户认证，所以开发者可以自由选择最合适的包，或者按照需求自行开发。&lt;br&gt;当然了Flask有好多的拓展，就像&lt;strong&gt;海底之冰山&lt;/strong&gt;我一直都是对未知的事物抱有一颗敬畏之心，所以我肯定是不会，而且也不必了解全部的拓展包。我们就只谈一下最常用的一些包。&lt;/p&gt;
-&lt;h4 id=&quot;Flask-Script支持命令行选项&quot;&gt;&lt;a href=&quot;#Flask-Script支持命令行选项&quot; class=&quot;headerlink&quot; title=&quot;Flask-Script支持命令行选项&quot;&gt;&lt;/a&gt;Flask-Script支持命令行选项&lt;/h4&gt;&lt;p&gt;当我们使用Flask开发Web服务器的时候会支持很多启动设置选项，但只能在脚本中作为参数传递给app.run()函数，这样的操作是很不方便的，传递设置选项的理想方式就是使用命令行参数。&lt;br&gt;Flask-Script是Flask拓展，为Flask程序添加了一个命令行解析器。Flask-Script自带了一组常用的选项，而且还支持自定义命令。我们使用pip进行安装。&lt;br&gt;
     
     </summary>
     

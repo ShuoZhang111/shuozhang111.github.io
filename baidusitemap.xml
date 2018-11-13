@@ -4,6 +4,24 @@
 
     
   <url>
+    <loc>http://blog.zhangshuo.xin/2018/11/12/binary-1/</loc>
+    <lastmod>2018-11-13T13:31:40.829Z</lastmod>
+    <data>
+        <display>
+        <title>关于二进制的一些认识</title>
+        <pubTime>2018-11-12T14:39:59.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="其他" url="http://blog.zhangshuo.xin/categories/%E5%85%B6%E4%BB%96/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://blog.zhangshuo.xin/2017/09/11/effort/</loc>
     <lastmod>2018-11-12T23:52:08.415Z</lastmod>
     <data>
@@ -285,24 +303,6 @@
            
              
               <breadCrumb title="Python" url="http://blog.zhangshuo.xin/categories/Python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://blog.zhangshuo.xin/2018/11/12/binary-1/</loc>
-    <lastmod>2018-11-12T23:43:48.532Z</lastmod>
-    <data>
-        <display>
-        <title>关于二进制的一些认识</title>
-        <pubTime>2018-11-12T14:39:59.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="其他" url="http://blog.zhangshuo.xin/categories/%E5%85%B6%E4%BB%96/"/>
           
         </display>
     </data>
